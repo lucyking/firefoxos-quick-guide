@@ -1,38 +1,36 @@
-# Basic Concepts {#concepts}
+##基本内容
+在着手建立第一个应用之前，我们先来了解一下关于Firefox OS开发的各类基础。在[说明](#说明)这一小节我们将了解到，如同网页一样，Firefox OS应用完全基于HTML5。然而，我们不再详述是什么造成两者之间的差别。
 
-Before we get our hands dirty and build our first app, let's learn some basic concepts about developing for Firefox OS. We learned in the [introduction](#introduction) that, just like web pages, apps in Firefox OS are based on HTML5. However, we haven't explained what makes Firefox OS apps different from regular web pages. 
+我们可以看到当前的App应用通常包含：
 
-If we use our collective knowledge about other mobile platforms we can see that native application generally will have:
+* 名称和图标，用户可以通过点击来加载相关应用。
+* 应用具备与系统服务和底层硬件交互的能力。
 
-* A name and an icon that the user can press to launch the app.
-* Access to system services and hardware capabilities. 
+look at the big pic,一个Firefox OS就像是一个带图标和名称的网页界面，并且通常可以离线运行（视其实际用途而定）。应用中诸如名称，图标以及其他数据都在一个名为*应用主菜单文件夹*中定义，相关内容将在下节详细介绍。
 
-Looking at the big picture, a Firefox OS app is just a web page that has an icon, a name and is usually able to work offline (depending on how the app is implemented). All the data about an application such as name, icon and more is defined in a *application manifest file* that is the focus of our next section.
+##应用主菜单
+[主菜单文件](https://developer.mozilla.org/docs/Apps/Manifest)是一个[JSON](http://json.org)格式的文件用以描述hosted网页应用的各方面内容。通常该文件被命名为**mainfest.webapp**且位于名为**index.html**的主HTML文件下方。
 
-## The Application Manifest
+<<[Mainfest示例](code/sample_manifest.webapp)
 
-The [manifest](https://developer.mozilla.org/docs/Apps/Manifest) is a [JSON](http://json.org) file that describes aspects of an hosted web app. Usually this file is called **manifest.webapp** and lives next to your main HTML file that is usually called **index.html**.
+在上例中我们可以看到一个名为memos[^memos]的应用。其内容还描述了应用的作者，图标，名称，通过哪个文件来加载该应用（在本例中是通过*index.html*文件加载），你的应用对各类硬件设备的访问权限等。如下图所示，这个mainfest文件会被Firefox OS用来将应用加载到设备的主界面，Firefox应用市场也会从该文件提取分类信息。
 
-<<[Sample Manifest](code/sample_manifest.webapp)
-
-Above we can see the manifest for an application called memos[^memos]. Among other things it describes who created the application, which icons are used, what is the name of the app, what file is used to launch the app (in this case it is *index.html*), what hardware access permissions your app requires, etc. This file is used by Firefox OS to add the application to the device's home screen and by the Firefox Marketplace to display the application on the catalog as we can see in the image below.
-
-[^memos]: This is a sample app for Firefox OS as [seen on the Firefox Marketplace](https://marketplace.firefox.com/app/memos) for which the [source code is on GitHub](https://github.com/soapdog/memos-for-firefoxos).
+[^memos]: 一个简单的Firefox OS应用示例在[Firefox应用市场中的示例](https://marketplace.firefox.com/app/memos) 以及该应用在[GitHub中的源码](https://github.com/soapdog/memos-for-firefoxos)。
 
 ![Memos app shown at the Firefox Marketplace](images/originals/memos-marketplace.png)
 
-Note how the information from the manifest is used by the system to add the app to the homescreen, as we can see on the following screenshot.
+注意系统是如何利用mainfest文件中的信息将应用加载到主界面，如以下截图所示。
 
 ![Memos on the simulator](images/originals/memos-simulator.png)
 
-By gathering your HTML, CSS, JavaScript, and a manifest file you already have an application ready to run on Firefox OS. Moving on our topic about basic concepts let's learn more about what application types there are.
+将你的HTML，CSS，JavaScript，和一个mainfest文件放到一起，你就获得了一个可以在Firefox OS上运行的应用。让我们继续基础知识的探讨，认识当前应用的类别。
 
-## Types of Application
+##应用的类别
+Firefox OS应用目前可以分为两大类：远程应用和本地应用-在不久的将来可能会有更多的类别（比如：用户自定义键盘和能够创建其他的系统服务）。
 
-Firefox OS currently has two types of applications: hosted apps and packaged apps - though more types may become available in the future (e.g. custom keyboards and the ability to create other system services).
+* **远程应用：**和通常的网页应用一样运行在网页服务器上。这意味着当用户加载一个远程应用时，该应用的内容将通过从远程服务器上加载（如果有cache可用的话，也可以从中加载）。
 
-* **Hosted Apps:** Are hosted on a web server just like normal websites. This means that when the user launches a hosted app, its content is loaded from the remote server (or from the cache, if available).
-* **Packaged Apps:** Are distributed as a zip file and copied to the device when installed. When the user launches a packaged app, its contents are loaded from the zip file instead of a remote server. 
+* **本地应用：**在安装时复制到设备中的zip格式文件。当用户加载一个本地应用时，该应用的相关内容直接从其zip文件中加载，无需访问服务器。
 
 There are pros and cons to both types. On the one hand, hosted apps are easier to maintain, as all you need to do is maintain files on your web server. However, it's harder to make them work offline because it requires the use of the much despised [**appcache**](https://developer.mozilla.org/pt-BR/docs/HTML/Using_the_application_cache). Hosted apps are also limited in which WebAPIs they can use, which means they can't do all the things a packaged app can do.   
 
