@@ -15,7 +15,7 @@
 
 在上例中我们可以看到一个名为memos[^memos]的应用。其内容还描述了应用的作者，图标，名称，通过哪个文件来加载该应用（在本例中是通过*index.html*文件加载），你的应用对各类硬件设备的访问权限等。如下图所示，这个mainfest文件会被Firefox OS用来将应用加载到设备的主界面，Firefox应用市场也会从该文件提取分类信息。
 
-[^memos]: 一个简单的Firefox OS应用示例在[Firefox应用市场中的示例](https://marketplace.firefox.com/app/memos) 以及该应用在[GitHub中的源码](https://github.com/soapdog/memos-for-firefoxos)。
+[^memos]: 一个简单的Firefox OS应用在[Firefox应用市场](https://marketplace.firefox.com/app/memos)中的示例 以及该应用在[GitHub](https://github.com/soapdog/memos-for-firefoxos)中的源码。
 
 ![Memos app shown at the Firefox Marketplace](images/originals/memos-marketplace.png)
 
@@ -97,4 +97,4 @@ Firefox OS 为开发者提供各类API函数来使开发出的应用具有较高
 ##总结
 在本章中我们了解到，和传统的网页不同，Firefox OS中的在线和离线应用依赖于mainfest文件。我们还了解到， 出于安全方面考虑，离线应用可以再细分为“用户级”和“认证级”。只有这两类安全级别的应用才可以调用Mozilla家那些功能更为强大的，在线应用和传统网页所无法调用的WebAPI函数。
 
-现在就让我们奋袖出臂，着手建立一个自己的应用吧！
+现在就让我们奋袖出臂，着手建立自己的应用！
