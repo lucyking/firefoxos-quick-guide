@@ -34,17 +34,18 @@ This book is distributed using Creative Commons license. More information inside
 3. 提交`git commit`到自己的仓库, 发起Pull Request到[MozillaChina/firefoxos-quick-guide](https://github.com/MozillaChina/firefoxos-quick-guide)
 
 ## 项目进度
-- [ ]appmanager.md
-- [ ]back.md
-- [ ]basics.md
-- [ ]devtools.md
-- [ ]distribution.md
-- [ ]firstapp.md
-- [ ]front.md
-- [ ]introduction.md
-- [ ]marketplace.md
-- [ ]setup.md
-- [ ]simulator.md
+
+- [ ] appmanager.md
+- [ ] back.md
+- [x] basics.md
+- [ ] devtools.md
+- [ ] distribution.md
+- [ ] firstapp.md
+- [ ] front.md
+- [ ] introduction.md
+- [ ] marketplace.md
+- [ ] setup.md
+- [ ] simulator.md
 
 ## l10n
 
@@ -54,4 +55,4 @@ This book is distributed using Creative Commons license. More information inside
 
 ## 许可证
 
-![知识共享](https://i.creativecommons.org/l/by-sa/2.5/cn/88x31.png)
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/cn/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/">知识共享署名-相同方式共享 3.0 中国大陆许可协议</a>进行许可。
