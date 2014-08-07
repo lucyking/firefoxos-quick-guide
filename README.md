@@ -24,7 +24,7 @@ This book is distributed using Creative Commons license. More information inside
 # 项目简介
 
 这个项目是关于[Quick Guide for Firefox OS Development](https://leanpub.com/quickguidefirefoxosdevelopment)这本书的.
-作者是`Andre Alves Garzia`
+作者是`Andre Alves Garzia`   
 现在我们准备翻译成简体中文.
 
 ## 如何参与
@@ -50,6 +50,28 @@ This book is distributed using Creative Commons license. More information inside
 ## 贡献者
 
 [Contributors](https://github.com/MozillaChina/firefoxos-quick-guide/graphs/contributors)
+
+```ruby
+vagrant@homestead:/vagrant/firefoxos-quick-guide$ git summary
+
+ project  : firefoxos-quick-guide
+ repo age : 11 months
+ active   : 19 days
+ commits  : 83
+ files    : 335
+ authors  :
+    41  Andre Alves Garzia  49.4%
+    23  Marcos Caceres      27.7%
+     6  Andre Jaenisch      7.2%
+     3  lucyking            3.6%
+     3  刘星                3.6%
+     2  Daniel Holbert      2.4%
+     2  Liu Xing            2.4%
+     2  filipecatraia       2.4%
+     1  Sean Silva          1.2%
+
+
+```
 
 ## l10n
 
