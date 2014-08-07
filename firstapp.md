@@ -45,7 +45,7 @@ Memos的mainfest文相当简洁。先在**memos**文件下创建一个名为**ma
 ##创建HTML文件
 创建HTML文件之前，我们简略地探讨一些关于[Gaia Building Blocks](http://buildingfirefoxos.com/building-blocks)的内容。Gaia Building Blocks中包含了很多可以重用到开发者自己的应用上，Firefox OS风格的交互界面代码模板。
 
-就像网页上那样，开发者并没有被强制要求采用以上Firefox OS风格的交互界面模块。是否采用Gaia模块完全取决于开发者自身抉择。并且，一个好的应用本来就应当具有别具一格的自身特点和用户体验。还要说明一点，开发者提交的应用并不会因为没有采用Gaia模板而受到Firefox O S应用市场的偏见或惩罚。我在本书中采用Gaia界面模板是因为本人在UI设计方面不行（也没钱另聘平面设计师）。
+就像网页上那样，开发者并没有被强制要求采用以上Firefox OS风格的交互界面模块。是否采用Gaia模块完全取决于开发者自身抉择。并且，一个好的应用本来就应当具有别具一格的自身特点和用户体验。还要说明一点，开发者提交的应用并不会因为没有采用Gaia模板而受到Firefox OS应用市场的偏见或惩罚。我在本书中采用Gaia界面模板是因为本人在UI设计方面不行（也没钱另聘平面设计师）。
 
 
 The HTML structure that we use in this application was built following the patterns adopted by the Gaia Building Blocks where each screen is a `<section>` and the elements follow a predefined format. If you haven't already, download the source code from the [memos repository](https://github.com/soapdog/memos-for-firefoxos) so that you have the files (including the Building Blocks) to use. For those not confident with git and GitHub, the files are also available as a [.zip file](https://github.com/soapdog/memos-for-firefoxos/archive/master.zip).
