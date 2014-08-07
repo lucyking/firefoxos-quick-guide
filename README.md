@@ -51,8 +51,8 @@ This book is distributed using Creative Commons license. More information inside
 
 [Contributors](https://github.com/MozillaChina/firefoxos-quick-guide/graphs/contributors)
 
-```ruby
-vagrant@homestead:/vagrant/firefoxos-quick-guide$ git summary
+```bash
+git summary
 
  project  : firefoxos-quick-guide
  repo age : 11 months
@@ -69,8 +69,6 @@ vagrant@homestead:/vagrant/firefoxos-quick-guide$ git summary
      2  Liu Xing            2.4%
      2  filipecatraia       2.4%
      1  Sean Silva          1.2%
-
-
 ```
 
 ## l10n
