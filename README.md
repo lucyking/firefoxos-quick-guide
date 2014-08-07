@@ -51,7 +51,7 @@ This book is distributed using Creative Commons license. More information inside
 
 [Contributors](https://github.com/MozillaChina/firefoxos-quick-guide/graphs/contributors)
 
-```bash
+```ruby
 git summary
 
  project  : firefoxos-quick-guide
