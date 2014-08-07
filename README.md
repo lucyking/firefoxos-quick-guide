@@ -47,6 +47,10 @@ This book is distributed using Creative Commons license. More information inside
 - [ ] setup.md
 - [ ] simulator.md
 
+## 贡献者
+
+[Contributors](https://github.com/MozillaChina/firefoxos-quick-guide/graphs/contributors)
+
 ## l10n
 
 葡萄牙语: [GitHub Repo](https://github.com/soapdog/guia-rapido-firefox-os/) and [Live book page](https://leanpub.com/guiarapidofirefoxos)
