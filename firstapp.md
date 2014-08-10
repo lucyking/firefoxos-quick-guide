@@ -45,18 +45,17 @@ Memos的mainfest文相当简洁。先在**memos**文件下创建一个名为**ma
 ##创建HTML文件
 创建HTML文件之前，我们简略地探讨一些关于[Gaia Building Blocks](http://buildingfirefoxos.com/building-blocks)的内容。Gaia Building Blocks中包含了很多可以重用到开发者自己的应用上，Firefox OS风格的交互界面代码模板。
 
-就像网页上那样，开发者并没有被强制要求采用以上Firefox OS风格的交互界面模块。是否采用Gaia模块完全取决于开发者自身抉择。并且，一个好的应用本来就应当具有别具一格的自身特点和用户体验。还要说明一点，开发者提交的应用并不会因为没有采用Gaia模板而受到Firefox OS应用市场的偏见或惩罚。我在本书中采用Gaia界面模板是因为本人在UI设计方面不行（也没钱另聘平面设计师）。
+就像网页上那样，开发者并没有被强制要求采用以上Firefox OS风格的交互界面模块。是否采用Gaia模块完全取决于开发者自身抉择。并且，一个好的应用本来就应当具有别具一格的自身特点和用户体验。还要说明一点，开发者的应用并不会因为没有采用Gaia模板而遭受偏见或惩罚。在本书中采用Gaia界面模板是因为本人UI设计不行（也没钱另聘平面设计师）。
 
+Gaia模块中的HTML布局将应用的每一屏幕界面定义为一个`<section>`，其他的元素也遵循一定的默认布局格式。可以从位于github上的[memos](https://github.com/soapdog/memos-for-firefoxos)仓库下载Memos应用源文件（包含Building Blocks）。要是对git和github不熟悉的话，可以下载压缩包：[memos.zip](https://github.com/soapdog/memos-for-firefoxos/archive/master.zip)。
 
-The HTML structure that we use in this application was built following the patterns adopted by the Gaia Building Blocks where each screen is a `<section>` and the elements follow a predefined format. If you haven't already, download the source code from the [memos repository](https://github.com/soapdog/memos-for-firefoxos) so that you have the files (including the Building Blocks) to use. For those not confident with git and GitHub, the files are also available as a [.zip file](https://github.com/soapdog/memos-for-firefoxos/archive/master.zip).
+注意：我使用的这一Gaia模块并不是Mozilla发布的最新版本。更新到最新版本会导致Memos应用崩溃。但是在建立你自己的应用时还是应该尽量使用最新版本的Gaia模块。
 
-W> Warning: The version of the Gaia Building Blocks I used for this app is not the most up-to-date available from Mozilla. Trying to update to the current version will, unfortunately, break the Memos app. In your own projects, however, always use the latest version of the Gaia Building Blocks.
+###将Gaia模块包含进来
 
-### Including the Building Blocks
+先将已下载的源码中的 **shared** 和 **style** 文件夹复制到之前新建的 **memos** 文件夹里。这样我们就可以在开发应用时使用Gaia模块了。
 
-Before doing anything else copy the **shared** and the **styles** folders that you obtained by downloading the Memos repository to the **memos** folder you created. This will allow use to use the Gaia Building Blocks in our app.
-
-Let's begin our **index.html** files by including the needed bits.
+然后在 **index.html** 文件中声明要调用的各个css文件。
 
 ~~~~~~~~
 <!DOCTYPE html>
@@ -80,11 +79,11 @@ Let's begin our **index.html** files by including the needed bits.
 </head>
 ~~~~~~~~
 
-On *line 01* we declare the DOCTYPE as HTML5. From *line 05 up to 15* we include the CSS from the various components that we're going to use in our app such as headers, lists, text entry fields and more.
+在第1行，我们将文件的DOCTYPE声明为HTML5。第5~15行中，我们对在应用中用作标题，列表，输入框等各种布局的css文件进行声明调用。
 
-### Building the main screen
+###创建主界面
 
-Now we can start building the various screens. As mentioned earlier, each screen used by our app is a `<section>` inside the HTML `<body>`. The body tag must have an attribute *role* with its value equal to *application* because that is used by the CSS selectors to build the interface, so our body tag will be `<body role="application">`. Let's build the first screen and declare our body tag as well.
+现在我们可以开始着手创建各类界面了。像前文提到的那样，应用所用的每个界面被定义为包含在HTML `<body>` 主体中的一个 `<section>` 部件。在body标签之后需要将*role* 的属性设置成 *application* ，以便CSS选择器据此创建相应界面。所以我们这样定义body标签：`<body role="application">`。现在让创建第一个屏幕界面并定义相关的body标签。
 
 ~~~~~~~~
 <body role="application">
@@ -100,15 +99,15 @@ Now we can start building the various screens. As mentioned earlier, each screen
 </section>
 ~~~~~~~~
 
-Our screen has a `<header>` containing a button to add new notes and the application name. The screen also has an `<article>` which will be used to hold the list of stored notes. We're going to use the button and the article IDs to capture events when we reach the JavaScript implementation part.
+以上屏幕界面代码中的 `<header>` 部件包含了该应用的名称和一个用来添加新记事及其的按钮。这个屏幕也包含一个`<article>`部件用来容纳记事列表。在后面的JavaScript应用环节中我们将利用按钮和记事ID来捕获事件（capture events）。
 
-Be aware that each screen is a fairly straight forward HTML chunk. Building these same screens in many languages usually requires a lot more work. All we're doing is declaring our containers and giving them IDs when we need to reference them later.
+记住，每个屏幕界面都是直接由一大段HTML代码定义布局。用其他编程语言构建同样外观的界面的过程通常更加繁杂。在HTML中，我们只需声明各类容器，并赋以对应的ID值以便引用。
 
-Now that the main screen is done, let's build the editing screen.
+主屏幕已建好，接下来我们开始构建编辑界面。
 
-### Building the editing screen
+### 构建编辑界面
 
-The editing screen is a bit more complex because it also holds the dialog box used when the user tries to delete a note.
+因为在用户尝试删除一条记事时需要弹出一个确认删除的对话框，所以编辑界面的代码更加复杂。
 
 ~~~~~~~~
 <section role="region" id="memo-detail" class="skin-dark hidden">
@@ -149,17 +148,16 @@ The editing screen is a bit more complex because it also holds the dialog box us
 </section>
 ~~~~~~~~
 
-At the top of the screen, represented by the `<header>` element, we have:
+在编辑界面的顶端，即代码中的`<header>`部件中包含了：
+* 一个可以返回主界面的按钮，
+* 一个用来包含记事标题的文本框
+* 一个可以通过邮件分享记事的按钮
 
- * a back button to return to the main screen,
- * a text entry field that is used to hold the title of the given note,
- * and a button that is used to share the note over email.
+在顶部菜单栏下方，我们用一个`<textarea>`部件来容纳记事主内容，用一个带垃圾桶图标的菜单栏来删除当前记事。
 
-Below the top toolbar, we have a paragraph holding a `<textarea>` that holds the content of the note and then another toolbar with a trashcan button used to delete the current viewed note.
+编辑界面由以上三个部件以及它们的子节点一起组成。此外我们采用一个`<form>`部件作为用户试图删除记事时的交互部件。这个简单的提示框仅包含提示文本和两个按钮：一个确认，一个删除。
 
-These three elements and their child nodes are the editing screen. After them we have a `<form>` that is used as a dialog box containing the confirmation screen that is presented to the user when he or she tries to delete a note. This dialog box is pretty simple, it only contains the text of the confirmation prompt and two buttons; one for deleting the note and another for canceling the action.
-
-Now that we're closing this `<section>` we have all our screens implemented and the remaining HTML code is only there to include the JavaScript files and close the html file.
+完成这个`<section>`后，我们已经实现了所有的屏幕界面。剩下的任务就是声明JavaScript文件的引用位置，结尾添加</html>呼应前文。
 
 ~~~~~~~~
 <script src="/js/model.js"></script>
