@@ -79,7 +79,7 @@ Gaia模块中的HTML布局将应用的每一屏幕界面定义为一个`<section
 </head>
 ~~~~~~~~
 
-在第1行，我们将文件的DOCTYPE声明为HTML5。第5~15行中，我们对在应用中用作标题，列表，输入框等各种布局的css文件进行声明调用。
+在第1行，我们将文件的DOCTYPE声明为HTML5。第5~15行中，我们对在应用中用作标题，列表，输入框等各种布局的css文件进行调用声明。
 
 ###创建主界面
 
@@ -166,22 +166,21 @@ Gaia模块中的HTML布局将应用的每一屏幕界面定义为一个`<section
 </html>
 ~~~~~~~~
 
-## Crafting the JavaScript code
+## 编写Javascript脚本
+现在我们开始着手编写可以使应用变得更加生动的Javascript脚本。我们一共创建了两个脚本文件，以便管理和组织代码。
 
-Now we're going to breathe life into our app by adding JavaScript. To better organize this code, I've divided the JavaScript code into two files:
+* **model.js：**包含存储路径和记事检索路径，但是不含任何应用运行逻辑，用户界面，数据项等信息。理论上，我们可以在其他需要记事功能的应用中重用这个文件。
 
-* **model.js:** contains the routines to deal with storage and retrieval of notes but does not contain any app logic or anything related to the interface or data entry. In theory, we could reuse this same file in other apps that required text notes.
-* **app.js:** attaches the HTML elements with their event handlers and contains the app logic.
+* **app.js：** 将HTML元素和其对应的事件句柄联系起来，并且包含应用的运行逻辑。
 
-Both files should be placed inside a **js** folder next to the **style** and **shared** folders.
+以上两个文件都应该放在一个名为**js**的文件夹中，该文件夹位于**style**和**shared**文件夹之后。
 
 ### model.js
+我们将采用[IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB)存储记事条目。由于事先在应用的mainfest文件中对存储权限进行声明，所以存储条目不会受到限制。但是，我们不能因此而滥用权限。Firefox OS设备的存储空间通常有限。所以开发者需要时刻注意你的应用存储了什么数据（如果你的应用占用了设备过多存储空间的话，用户就会卸载应用并给你的应用差评！）。并且存储过量数据的话会对应用的流畅运行产生影响，使应用在运行时有卡顿的感觉。注意，当你向Firefox OS应用市场提交应用，审查者会问你为什么要声明无限大的存储空间 -- 如果你不能做出合理解释的话，你的应用将不能通过审核。
 
-We're going to use [IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB) to store our notes. Since we asked the *storage* permission on the app manifest we can store as many notes as we want - however, we should not abuse this! Firefox OS devices generally have very limited storage space, so you always need to be mindful of what data you store (users will delete and down-rate your app if it uses too much storage space!). And storing excessive amounts of data will have a performance penalty, which will make your app feel sluggish. Please also note that when you submit an application to the Firefox OS Marketplace, reviewers will ask you why you need unlimited storage space - if you can't justify why, your application will be rejected.  
+以下的这段js代码主要用来打开链接和创建存储空间。
 
-The part of the code from *model.js* that is shown below is responsible for opening the connection and creating the storage.
-
-A> Important: This code was written to be understood easily and does not represent the best practices for JS programming. Some global variables are used (I'm so going to hell for this) among other tidbits. The error handling code is basically non-existant. The main objective of this book is to teach the *workflow* of developing apps for Firefox OS and not teaching best JS patterns. That being said, depending on feedback, I will update the code in this book to better reflect best practices if enough people think it will not impact the beginners.
+注意：这部分代码在编写方面以通俗易懂为主，没有体现出JS脚本在性能方面的特点。一些全局变量在各种代码段中都有使用（我要开始抱怨了啊）。但是这些。本书的主要目的是为了教授开发Firefox OS应用的*主要流程*，而不是JS脚本的最佳结构。此外，我会根据读者的后续反馈，在不影响初学者理解的前提下优化代码。
 
 ~~~~~~~
 var dbName = "memos";
@@ -229,13 +228,11 @@ request.onupgradeneeded = function (event) {
 }
 ~~~~~~~
 
-A> Important: Forgive me again for the globals, this is an educational resource only. Another detail is that I removed the comments from the source code to save space in the book. If you pick the source from GitHub you will get all the comments.
+注：源码中的全局变量只是作为教学之用。原谅我在书本中为了节约排版空间而删除了全局变量的相关注释。Github上的源码中任然包含所有注释。以上代码创建了一个*db*对象和一个*request*对象。*db*对象会被源码中的其他方法调用以管理记事的存储。
 
-The code above creates a *db* object and a *request* object. The *db* object is used by other functions in the source to manipulate the notes storage.
+在调用`request.onupgradeneeded`方法的同时应用会创建一个新的类似hello worid的记事。该方法会在第一次运行应用（或数据库更新版本）的时候调用。即当应用被首次加载时，数据会初始化并保存一条包含“欢迎使用”内容的记事。
 
-On the implementation of the `request.onupgradeneeded` function we also create a welcome note. This function is executed when the application runs for the first time (or when the database version changes). This way once the application launches for the first time, the database is initialized with a single welcome note.
-
-With our connection open and the storage initialized its time to implement the basic functions for note manipulation.
+在打开链接和初始化数据库之后，就可以开始编写管理记事内容的相关方法了。
 
 ~~~~~~~~
 function Memo() {
@@ -300,15 +297,14 @@ function deleteMemo(inId, inCallback) {
 }
 ~~~~~~~~
 
-On the piece of code above we create a constructor function that creates new Memos with some fields already initialized. After that we implement functions for listing, saving and removing notes. Many of these functions receive a callback parameter called `inCallback` which is a function to be called after the function does its thing. This is needed due to the asynchronous nature of IndexedDB. All callbacks have the same signature which is `callback(error, value)` where one of the values is null depending on the outcome of the previous function.
+在以上代码中我们创建了一个构造器，在必须的字段已经初始化的情况下就可以创建新的应用实例。之后我们调用相关方法来列出记事列表，存储和删除记事条目。其中的部分函数接受一个称为`inCallback`的回调参数，这个参数会在方法运行完成后返回。之所以采用这种机制主要由IndexedDB的异步同步机制决定。所有的回调函数具备类似`callback(error, value)`的结构。有些方法的回调参数value值为零。
 
-A> Since this is a beginner book I've opted not to use [*Promises*](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise) since many beginners are not familiar with the concept. I recommend using such concepts to create easier to maintain code that is more pleasant to read.
+注：由于本书面向初学者，我不主张调用涉及[*Promises*](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)的API函数。推荐使用那些容易实现相同效果且易于阅读的方法。
 
-Now that our note storage and manipulation functions are ready, let's implement our app logic in a file called **app.js**.
+既然条目存储和方法调用已经完备，接下来就可以将**app.js**中的运行逻辑应用到app中。
 
 ### app.js
-
-This file will contain our app logic. Since the source code is too large for me to place it all at once on the book, I will break it in parts and explain each part piece by piece.
+该文件包含应用的逻辑。在本书中由于源码冗杂限于篇幅以致不可能全部照搬。我会将其分为几个部分然后分别讲解。
 
 ~~~~~~~~
 var listView, detailView, currentMemo, deleteMemoDialog;
@@ -359,15 +355,15 @@ function newMemo() {
 }
 ~~~~~~~~
 
-At the beginning we declare some global variables (yuck!!!) to hold references to some DOM elements that we want to use later inside some functions. The most interesting global is `currentMemo` which is an object that holds the current note that the user is reading.
+在程序开头，我们先声明几个全局变量（哇!!!）来存储后面会用到的指向DOM元素的指针（reference）。其中`currentMemo`全局变量存储用户当前阅读的记事对象。
 
-The `showMemoDetail()` and `displayMemo()` functions work together. The first one loads the selected note into the `currentMemo` and manipulates the CSS of the elements so that the editing screen is shown. The second one picks the content from the `currentMemo` variable and places it on the screen. We could do both things on the same function but having them separate makes it easier to experiment with new implementations.
+`showMemoDetail()` 和 `displayMemo()`两个方法一起协同工作。前者将选中的记事加载到后一个方法中，并控制元素的CSS布局生成一个可编辑的记事界面。后者加载记事内容并将其显示在屏幕上。我们可以用一个方法同时实现这两个功能，但是分开的话在调用时更易于experiment。
 
-The `shareMemo()` function uses a [WebActivity](https://hacks.mozilla.org/2013/01/introducing-web-activities/) to open the email application with a new message pre-filled with the selected notes content.
+`shareMemo()`方法调用调用[WebActivity](https://hacks.mozilla.org/2013/01/introducing-web-activities/)函数来打另一个邮件应用，并将当前的记事内容预先填写到邮件正文中。
 
-The `textChanged()` function picks the data from the entry fields and place them into the `currentMemo` object and then saves the note. This is done because the application is an `auto-save` app where your content is always saved. All alterations on the content or title of the note will trigger this function and the note will always be saved on the IndexedDB storage.
+`textChanged()`方法会将所有字段中的数据保存到`currentMemo`对象中然后保存当前记事。这样的话当记事中的内容发生变化的时候，该方法就会自动将变更的内容同步到IndexedDB数据库中。
 
-The `newMemo()` function creates a new note and opens the editing screen with it.
+`newMemo()`方法会创建一个新记事并打开一个相关的编辑界面。
 
 ~~~~~~~~
 function requestDeleteConfirmation() {
@@ -396,11 +392,11 @@ function showMemoList() {
 }
 ~~~~~~~~
 
-The `requestDeleteConfirmation()` function is responsible for showing the note removal confirmation dialog.
+`requestDeleteConfirmation()方法负责弹出确认删除对话框。
 
-The `closeDeleteMemoDialog()` and `deleteCurrentMemo()` are triggered by the buttons on the removal confirmation dialog.
+`closeDeleteMemoDialog()` 和 `deleteCurrentMemo()`方法会在用户确认删除时触发。
 
-The `showMemoList()` function does some clean up before showing the list of stored notes. For example, it cleans the content of `currentMemo` since we're not reading any memo yet.
+`showMemoList()`方法在显示记事列表前将先执行一次清除。比如，会将`currentMemo`方法中的内容清除掉，因为在显示记事列表时我们还没有读取任何具体记事条目。
 
 ~~~~~~~~
 function refreshMemoList() {
@@ -446,9 +442,9 @@ function refreshMemoList() {
 }
 ~~~~~~~~
 
-The `refreshMemoList()` function modifies the DOM by building element by element the list of notes that is displayed on the screen. It would be a lot easier to use some templating aid such as [handlebars](http://handlebarsjs.com/) or [underscore](http://underscorejs.org/) but since this app is built using nothing but *vanilla javascript* we're doing everything by hand. This function is called by `showMemoList()` that was shown above.
+`refreshMemoList()`方法通过逐条建立记事列表来调整DOM。你可以使用诸如[handlebars](http://handlebarsjs.com/) 或者 [underscore](http://underscorejs.org/)之类的模板来简化编写过程。但是本文中的应用仅仅使用*vanilla javascript*手工编写完成。 该功能通过上文中的`showMemoList()`方法调用。
 
-These are all the functions used by our app. The only part of the code that is missing is the initialization of the event handlers and the initial call of `refreshMemoList()`.
+以上就是应用中用到的所有函数方法。现在唯独缺少事件句柄的初始化和`refreshMemoList()`方法的初始调用代码。
 
 ~~~~~~~
 window.onload = function () {
@@ -481,73 +477,70 @@ window.onload = function () {
 };
 ~~~~~~~
 
-Now all files are ready and we can begin trying our application on the simulator. There are two ways of doing this depending if you're using the **App Manager** or the old **Firefox OS 1.1 simulator**. In the following section we'll show both. There will be specific chapters on each technology later.
+所有代码准备好后，我们就可以开始在模拟器中测试应用。我们可以分别通过**App Manager**或者较旧的**Firefox OS 1.1 simulator**两种方法进行测试。接下来分别详细讲解这两种技术。
 
-If you're running **Firefox 29 or newer** then you have the **App Manager**, if you're running an older version then you can use the old simulator. Be aware that the App Manager is only able to connect to Firefox OS 1.2+ devices.
+如果你的火狐浏览器版本在29及以上，那么你可以安装 App Manager插件。其他较低版本浏览器可以安装旧版本的模拟器。需要注意的是，App Manager只能连接Firefox OS 1.2以上版本的设备。
 
-If you have a Firefox OS 1.1 device and you're running Firefox 29 then install the Firefox OS 1.1 simulator version 5.0 available for [Mac OS X](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-mac.xpi), [Linux](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-linux.xpi) or [Windows](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-windows.xpi). If you install this simulator you will be able to follow the instructions for the old Firefox OS 1.1 simulator and be able to connect your device.
+如果你有一个Firefox OS 1.1版本的设备，然后你的浏览版本是29，那么你可以根据需要安装对应平台的Firefox OS 1.1 simulator version 5.0 [Mac OS X](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-mac.xpi), [Linux](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-linux.xpi) or [Windows](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-windows.xpi)。安装完成后你就可以按照指导说明连接上你的设备。
 
-If your device running Firefox OS 1.1 is unlocked and able to receive version 1.2 or later then you should upgrade because it will make your life a lot easier. The Geeksphone Keon, Geeksphone Peak and Geeksphone Revolution have daily Firefox OS builds available at [http://downloads.geeksphone.com/](http://downloads.geeksphone.com/). The ZTE Open can also be upgraded following the instructions at [Upgrading your ZTE Open to Firefox 1.1 or 1.2 (fastboot enabled)](https://hacks.mozilla.org/2014/01/upgrading-your-zte-open-to-firefox-1-1-or-1-2-fastboot-enabled/). The LG Fireweb can't be upgraded, if you are like me and don't like this then go bug LG to open/upgrade their device on Twitter. The Alcatel One Touch Fire can be unlocked but this type of instruction is beyond this book.
+如果你的设备系统是Firefox OS 1.1版本并且是无锁的，那么你还可以选择更新到1.2或更高的系统版本。选择更新会使你之后的工作变得更加顺手。 Geeksphone Keon，Geeksphone Peak和Geeksphone Revolution上面每天都会推出Firefox OS的改进版本，参见[http://downloads.geeksphone.com/](http://downloads.geeksphone.com/)。 我国的ZTE Open详细更新步骤参见[Upgrading your ZTE Open to Firefox 1.1 or 1.2 (fastboot enabled)](https://hacks.mozilla.org/2014/01/upgrading-your-zte-open-to-firefox-1-1-or-1-2-fastboot-enabled/)。泡菜国的LG Fireweb暂时不能更新。如果你们觉得我人不错，然后又觉得LG不能更新很讨厌的话，那么快去他们的官方Twitter上提建议。Alcatel One Touch Fire可以更新，但是其详细步骤已经超出了本书的讨论范畴。
 
-W>Notice: This [bug request #1001590](https://bugzilla.mozilla.org/show_bug.cgi?id=1001590) on bugzilla will fix the current problem of not being able to run the Firefox OS 1.1 simulator on Firefox 29.
+注：bugzilla上的这个[bug request #1001590](https://bugzilla.mozilla.org/show_bug.cgi?id=1001590)补丁可以修正当前Firefox 29不能运行Firefox OS 1.1模拟器的问题。
 
-## Testing the app with the App Manager
-
-Before we try our application on the simulator we'd better check out if the files are in the correct place. Your memos folder should look like this one:
+## 用App Manager测试应用
+在测试之前，我们最好事先确认下所有的文件都在正确的位置上。你的memos应用的文件布局应当如下图所示：
 
 ![List of files used by Memos](images/originals/memos-file-list.png)
 
-If you have a hunch that you wrote something wrong, just compare your version with the one on [the memos github repository](https://github.com/soapdog/memos-for-firefoxos) (There is also a copy of the source code in a folder called **code** on the [book repository](https://github.com/soapdog/guia-rapido-firefox-os) ).
+如果出现不同的文件层次的话，那么你肯定在某些地方写错了。出错的话请将你的源码和这份源码进行比对[the memos github repository](https://github.com/soapdog/memos-for-firefoxos) 。本书附录[book repository](https://github.com/soapdog/guia-rapido-firefox-os)中的**code**文件夹内也包含了一份相同的源码。
 
-To open the *Simulator Dashboard* go to the menu for **Tools -> Web Developer -> App Manager**.
+打开*Simulator Dashboard*，依次选择**Tools -> Web Developer -> App Manager**
 
 ![Where you can find the App Manager](images/originals/locate-app-manager.png)
 
-With the App Manager open, click the **Add Packaged App** option on the **Apps tab** and browse to where you placed the memos files and select that folder.
+打开App Manager后，点击**Apps tab**中的**Add Packaged App**选项，然后浏览并选中你的应用所在的文件夹目录。
 
 ![Adding a new app](images/originals/app-manager-add-packaged-app.png)
 
-If everything works as expected you will see the Memos app on the list of apps.
+一切顺利的话接下来你就可以在应用列表中看到你的应用。
 
 ![Memos showing on the App Manager](images/originals/app-manager-showing-memos.png)
 
-After adding your application, click the **Start Simulator** button and run one of your installed simulators. If you haven't installed any simulator yet, I suggest you follow the instructions on screen and install them all.
+添加完应用之后，点击**Start Simulator**按钮并启动一个已安装好的设备模拟器。如果你还没有安装任何模拟器的话，建议你按照屏幕上的说明步骤把它们全部安装上去。
 
-With the Simulator running press the **Update** button on the memos listing on the **App Manager** to install memos on the running Simulator. After the installation the memos icon will appear at the Simulator home screen. You can just click it to run your app.
+当模拟器开始运行时，在**App Manager**的memos应用详细界面中点击**Update**按钮来将memos应用安装到模拟器中。安装完成后memos应用的图标就会出现在模拟器的主屏幕上。可以通过点击图标来运行该应用。
 
 
 ![Memos installed on the Simulator](images/originals/app-manager-updating-memos.png)
 
-Congratulations! You created and tested your first app. It's not a complex or revolutionary app - but I hope it helped you understand the development workflow of Firefox OS. As you can see, it's not very different from standard Web development.  
+干得漂亮！现在你已经创建并测试完成了你的第一个应用。一个没有新意的简单应用--但是我希望通这个示例让你对Firefox OS应用的创建流程有更加深刻的了解。如你所见，这和基本的Web开发没有很大的区别。
 
-Remember that whenever you alter some of the source files you need to press the **Update** button to update the copy of the app that is stored on the running Simulator.
+注意，更新应用源文件中任何内容之后，都需要通过点击**Update**按钮来更新模拟器中存储的对应文件。
 
-## Testing the app on the simulator
-
-Before we try our application on the simulator we'd better check out if the files are in the correct place. Your memos folder should look like this one:
+## 在模拟器上测试应用
+在测试之前，我们最好事先确认下所有的文件都在正确的位置上。你的memos应用的文件布局应当如下图所示：
 
 ![List of files used by Memos](images/originals/memos-file-list.png)
 
-If you have a hunch that you wrote something wrong, just compare your version with the one on [the memos github repository](https://github.com/soapdog/memos-for-firefoxos) (There is also a copy of the source code in a folder called **code** on the [book repository](https://github.com/soapdog/guia-rapido-firefox-os) ).
+如果出现不同的文件层次结构缩进的话那么你肯定在某些地方写错了。出错的话请将你的源码和这份源码进行比对[the memos github repository](https://github.com/soapdog/memos-for-firefoxos) 。本书附录[book repository](https://github.com/soapdog/guia-rapido-firefox-os)中的**code**文件夹内也包含了一份相同的源码。
 
-To open the *Simulator Dashboard* go to the menu for **Tools -> Web Developer -> Firefox OS Simulator**.
+打开*Simulator Dashboard*，依次选择**Tools -> Web Developer -> Firefox OS Simulator**。
 
 ![How to open simulator dashboard](images/originals/tools-web-developer-simulator.png)
 
-With the dashboard open, click the **Add Directory** button and browse to where you placed the memos files and select the app manifest.
+点击**Add Directory**按钮，然后浏览并选中你的应用所在的文件夹目录。
 
 ![Adding a new app](images/originals/simulator-add-directory.png)
 
-If everything works as expected you will see the Memos app on the list of apps.
+一切顺利的话接下来你就可以在应用列表中看到你的应用
 
 ![Memos showing on the dashboard](images/originals/memos-on-dashboard-display.png)
 
-When you add a new application, the simulator will launch with your new app running - allowing you to test it. Now you can test all the features for Memos.
+当你添加一个新的应用时，模拟器会加载并运行你的新应用。接下来你就可以测试应用的各项功能。
 
-Congratulations! You created and tested your first app. It's not a complex or revolutionary app - but I hope it helped you understand the development workflow of Firefox OS. As you can see, it's not very different from standard Web development.  
+干得漂亮！现在你已经创建并测试完成了你的第一个应用。一个没有新意的简单应用--但是我希望通这个示例让你对Firefox OS应用的创建流程有更加深刻的了解。如你所见，这和基本的Web开发没有很大的区别。
 
-Remember that whenever you alter some of the source files you need to press the **Refresh** button to update the copy of the app that is stored on the simulator.
+注意，更新应用源文件中任何内容之后，都需要通过点击**Refresh**按钮来更新模拟器中存储的对应文件。
 
-## Summary
-
-In this chapter we built our first application for Firefox OS and saw it running on the simulator. In the next chapter we're going to check out the developer tools that comes bundled with Firefox, they will make your life a lot easier when developing applications.
+##总结
+在本章中我们建立了第一个自己的Firefox OS应用并在模拟器上测试运行。下一章我们将涉略开发者工具，那些套件将在开发中助你一臂之力。
