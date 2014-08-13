@@ -1,4 +1,4 @@
-# 介绍 {#介绍}
+# 介绍 {#introduction}
 
 ## Firefox OS
 
