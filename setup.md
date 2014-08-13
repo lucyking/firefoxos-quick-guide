@@ -13,7 +13,7 @@
  * 如果你的设备运行的是Firefox OS 1.1，[Firefox OS模拟器](https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/)
  * 编程用的文本编辑器[^editors]
 
-注意：**Firefox OS模拟器是用来测试Firefox OS 1.0至1.1的设备的，如果要测试Firefox OS 1.2+，请使用应用管理器（App Manager） **，我们稍后会详述。
+注意：**Firefox OS模拟器是用来测试Firefox OS 1.0至1.1的设备的，如果要测试Firefox OS 1.2+，请使用应用管理器(App Manager)**，我们稍后会详述。
 
 最初写这本书时，**Firefox OS 1.1**是主流，官方的测试方式是使用**Firefox OS 1.1模拟器**。现在Mozilla已经改用新的**应用管理器**，比旧版模拟器好用多了，不过很遗憾，它不能连接Firefox OS 1.1设备。
 
