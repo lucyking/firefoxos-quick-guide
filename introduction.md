@@ -1,47 +1,50 @@
-# Introduction {#introduction}
+# 介绍 {#介绍}
 
 ## Firefox OS
 
 ![Firefox OS](images/originals/firefox_os_simulator.png)
 
-[Firefox OS](http://www.mozilla.org/firefox/os/) is a new mobile platform developed by [Mozilla](http://mozilla.org) and its partners. Devices running Firefox OS are already available in many countries and will reach even more places by the end of 2013.
+[Firefox OS](http://www.mozilla.org/firefox/os/)是一个由[Mozilla](http://mozilla.org)及其合作伙伴共同开发的全新的移动操作系统。可运行Firefox OS的设备已经在许多国家上市，并且将在2013年末前拓展到更多地方。
 
-Targeted at developing markets, Firefox OS has the mission to bring the next billion people online. To achieve this, Firefox OS devices are built to serve as a *great first smartphone* along with competitive pricing. Firefox OS devices should not be compared with high-end smartphones such as the Apple iPhone 5S and Samsung Galaxy S4; they are built to be an alternative to feature phones so that people using said devices are able to upgrade to a Firefox OS one at an affordable cost and receive the *full smartphone experience*.
+Firefox OS的目标是新兴市场，为这数亿人群带来互联网体验是它的使命。为了达成使命，Firefox OS设备一开始就为担任 *好用的第一部智能手机* 而生，并辅以有竞争力的价格。Firefox OS设备不与高端智能手机竞争，如Apple iPhone 5S和Samsung Galaxy S4。它们可以为使用上述手机的用户多提供一种选择，除了功能手机外，他们还能以可承受的价格买部Firefox OS设备，享受 *完整的智能手机体验*。
 
-In developing markets such as Brazil and Colombia, smartphones with decent performance are generally too expensive for the average consumer. People are able to buy cheap phones, but the platforms used in these phones are intended for high-end devices - as such, the phone's hardware tends to underperform, which leads to a terrible user experience. Firefox OS is specifically designed to run on limited hardware while providing a decent user experience. 
+在像巴西和哥伦比亚这样的新兴市场，性能不错的智能手机的价格普遍太贵，普通消费者买不起。人们可以去买部便宜的手机，但由于这些手机的操作系统是为高端设备而开发，于是乎，在便宜手机的硬件上表现不佳，导致用户体验非常糟糕。Firefox OS经过专门设计，能够在有限的硬件下提供良好的用户体验。
 
-Another differentiating factor of Firefox OS is its openness. Consider that the current mainstream mobile operating systems are proprietary silos, where each vendor has the privilege to force his way on the developers and users regardless of their wishes (remember when Apple tried banning languages other than Objective-C from the iTunes App Store?). In those proprietary ecosystems you can only distribute your apps on authorized channels - and the vendor usually keeps a significant part of the the money from any purchases made on the device.
+另一个让Firefox OS与众不同的特点是它的开放性。考虑到当前的主流移动操作系统都是独占的，系统供应商拥有特权，他们可以不顾开发者和用户的意愿，强行推行自己的做法（还记得Apple曾禁止开发者在iTunes App Store使用除Objective-C以外的语言这件事吗？）。处于如此独占的生态系统，你只能在授权的渠道下发布应用，而且应用所得的收入，永远是这些供应商拿大头。
 
-Besides locking the developers to proprietary distribution channels, these systems lock you to their software development kits (SDKs). If you want to build a native app for both iOS and Android using the official toolkits you will need to code one app using Objective-C and another with Java respectively. This means that, code-wise, a developer will reuse very little between projects (and maybe reuse some media assets). That kind of effort requires that the developer learns two languages and build the same software twice. 
+开发者除了受限于被独占的发布渠道，还被各个系统的软件开发工具(SDKs)限制住了。如果你想用官方开发工具来开发一个iOS原生应用和一个Android原生应用，那么你不得不分别用Objective-C和Java两种语言来写。这意味着，就编程代码而言，开发者几乎不能重用项目间的代码（也许有一些媒体资源可以重用）。想要完成这个任务，开发者得学会两门语言，开发同一个软件两次。
 
-Firefox OS differentiates itself by using "HTML5" as the development platform. HTML5 is a marketing term used to mean the ever-evolving collection of Web standards known as HTML, CSS and JavaScript. These royalty free standards are implemented by the major web browsers, and are what make web applications possible. By leveraging the technologies that encompass HTML5, millions of web developers are already able to code for Firefox OS. And apps built for Firefox OS are easy to port to another platform by using wrappers such as [Phonegap](http://phonegap.com).
+Firefox OS有个不同的地方是，它使用“HTML5”作为开发平台。HTML5是一个市场用语，它用来指代时刻演进着的网络标准集合，包括HTML, CSS和JavaScript。这些免专利费的标准被主流浏览器所采纳，使得开发Web应用变得可能。随着一系列围绕HTML5的技术的不断发展，数以百万计的Web开发者已经能够进行Firefox OS的开发了。依靠[Phonegap](http://phonegap.com)此类封装工具，Firefox OS上的应用很容易就可以转化到其他平台。
 
-## The Platform That HTML5 Deserves
 
-The web is everywhere. Its on your computer, mobile phone, smart TV, and even in your video game consoles. The programming language of the web, JavaScript, is one of the most popular languages in the world. As already mentioned, when people talk about HTML5 they usually mean the collection of three technologies known as HTML, CSS and JavaScript. Recent advances in HTML have brought in a range of new features - advanced form controls, Web sockets, and more semantic markup - when compared to XHTML 1.0 and HTML 4.01. Advances in CSS have also introduced lots of new features, such as Flexbox and CSS Animations, that make it a lot easier to create beautiful responsive layouts. And recent advances in JavaScript have brought significant performance improvements and new capabilities, all while remaining easy to use for both beginners and seasoned developers alike.
+## 为HTML5而生的平台
 
-Firefox OS is in essence, an extension of the mobile web. By making HTML5 a first class citizen, Mozilla has opened its platform to millions of web developers. Even if some other browser vendors implement HTML5 in their mobile offerings, Firefox OS goes beyond that by offering a collection of APIs to access the underlying hardware and system using JavaScript. These APIs are collectively known as the WebAPIs.
+互联网无处不在，在你的电脑、手机、智能电视，甚至游戏主机。JavaScript，互联网的开发语言，是世上最受欢迎的编程语言之一。上面已经提到，我们在谈论HTML5的时候，通常指的是这三种技术的集合：HTML, CSS和JavaScript。最近的改进带来了一系列新特性 - 高级表单控件，Web sockets，还有就是，跟XHTML 1.0和HTML 4.01相比，增加了更多语义标记。近期CSS方面也引入了许多新特性，包括Flexbox和CSS动画，这使得创建美观的响应式网页变得更容易了。Javascript最新的发展包括性能的显著提高和新功能的增加，所有的改进都一如既往地易用，不管是对初学者还是经验丰富者。
 
-## Accessing The Hardware Using The WebAPI
+Firefox OS本质其实是移动互联网的延伸。Mozilla把HTML5奉为一等公民，为数以百万计的Web开发者开放了一个平台。虽然有些浏览器厂商的移动版浏览器也支持HTML5，但是Firefox OS能做的可不止如此，它还提供了一系列能够通过Javascript访问底层硬件和系统的接口。这些接口统称为WebAPIs。
 
-Some earlier platforms also tried to create operating systems that used web technologies for app creation. For example, when the iPhone was introduced to the world, the only way to create apps was using web technologies. However, those web apps were limited in that they had no hardware or device access - meaning that only a limited range of applications could be built. When Apple then allowed developers to code apps in Objective-C, and also access the device's capabilities, it spurred a huge amount of innovation. Sadly, web apps did not gain access to the device's capabilities, and were thus left as "second-class citizens" - this made them unattractive to both users and developers alike, and unable to compete with native apps in that system.
 
-When we say device capabilities we actually mean accessing hardware and OS level features and services: We're talking about things such as updating the address book, sending SMS, and accessing the camera and media gallery. On Firefox OS, the [WebAPI](https://developer.mozilla.org/en-US/docs/WebAPI)s are the means by which you will access many of those capabilities. 
+## 使用WebAPI访问硬件
 
-Another earlier platform, WebOS, also offered hardware access via JavaScript but never tried to standardize its APIs. Mozilla is working with the W3C and other stakeholders to make sure that the WebAPIs are an open standard and that other browsers adopt them too. As these APIs are implemented by other browsers, your apps will require less and less changes to work across different platforms.
+早前的一些平台也曾尝试过创建一个操作系统，然后在这个操作系统上使用Web技术来开发应用。例如，iPhone刚面世时，唯一能开发应用的方法就是使用Web技术。但是这些Web应用有个局限性，它们不能访问硬件或设备，这意味着你能开发的应用很有限。后来当Apple允许开发者使用Objective-C语言，并且能够访问设备的功能时，它掀起了一股巨大的创新浪潮。很遗憾，Web应用当时没有获得访问设备功能的权限，于是沦为了“二等公民”，这让它们吸引不了用户和开发者，无法与原生应用竞争。
 
-It's important to emphasize that the WebAPIs are not exclusive to Firefox OS devices. Mozilla is implementing it for the other platforms on which Firefox runs, such as desktop and android. This way, you can use your *open web app* in Firefox OS, Firefox on the desktop and Firefox for Android.
+当提及设备功能，我们实际指的是访问硬件和系统级别的功能服务，比如更新电话簿、发送短信以及浏览相机和媒体的相册。在Firefox OS上，你能通过[WebAPI](https://developer.mozilla.org/en-US/docs/WebAPI)来访问这些功能。
 
-## Freedom to Develop and Distribute
+早些时候还有一个平台，WebOS，它也允许通过Javascript来访问硬件，但是它却从没想过将APIs标准化。Mozilla连同W3C和其他参与方，一起努力确保WebAPIs是一个开放的标准，让其他浏览器也能采纳它们。当其他浏览器支持这些APIs后，你的应用只需越来越少的修改就能跨平台运行了。
 
-Like everything that Mozilla does, Firefox OS is developed in the open and is free. All development can be followed on [the Mozilla B2G repository](https://github.com/mozilla-b2g/B2G) on GitHub. With Firefox OS you have the freedom to follow and contribute with the development of the system and you also have the freedom to distribute your applications on your own channels or on [The Firefox Marketplace](https://marketplace.firefox.com/). What's really awesome is that all the system applications are written in HTML5, so you can check them out and see how the are put together. 
+有一点很重要需要强调的是，WebAPIs不仅仅能运行在Firefox OS设备上。Mozilla正在让能运行Firefox的平台支持WebAPIs，例如电脑和Android。这样的话，你的 *Web开放应用* 就能在Firefox OS、电脑版Firefox和Android版Firefox上运行了。
 
-The main idea is that you're not locked to Mozilla for anything. If you want to pick the source code for the system and change it for your own needs, so be it. If you need to build apps for internal use on your company, or if you want to distribute your creations only on your own web site, you're free to do it. Usually, in other platforms you're locked into the official app store as the only channel to distribute your apps. Firefox OS also has an official market called Firefox Marketplace which has an approval process but you're free to distribute your app outside this store if you want. Like in the web where you can host your web site anywhere you want, on Firefox OS you can do the same with your applications. 
 
-This comes with a small caveat, sadly: some of the WebAPIs are too security sensitive to just allow anyone to use them. To distribute apps that use some of the more "privileged" APIs, you will need to get your applications signed and reviewed by Mozilla's staff. 
+## 开发和发布的权利
 
-## Summary
+正如Mozilla的所有项目，Firefox OS是开源且免费的。你可以在[Mozilla B2G repository](https://github.com/mozilla-b2g/B2G)关注项目的开发。你可以关注系统的发展，为项目做贡献，你还有权在你自己的渠道或[The Firefox Marketplace](https://marketplace.firefox.com/)下发布应用。更棒的是，所有的系统应用都是用HTML5写的，所以你可以查看代码看它们是如何组织的。
 
-HTML5 is here to stay and will only get better. Firefox OS is the new open mobile operating system by Mozilla completely based on web technologies. This system is built on the open and offers a robust HTML5 implementation that goes beyond the other platforms by offering the WebAPI which is a collection of APIs to access *hardware and operating system services using JavaScript*. These new APIs are being standardized through the World Wide Web Consortium (W3C) and will hopefully be adopted by other browsers in the future.
+总而言之你不会在任何方面受限于Mozilla。假如你想获取系统的源代码，然后根据你的需求修改它，尽管去做吧。抑或你想开发一些应用仅供公司内部使用，或者只想通过自己的网站来发布作品，这一切都随你。一般来说，其他平台都有自己的官方应用市场，你只能在这个市场发布应用。Firefox OS也有个官方市场叫Marketplace，它也有一个审批流程，但是只要你愿意，你完全可以不通过这个市场发布你的应用。正如在互联网，你可以把你的网站托管到任意地方，在Firefox OS上，你也可以把你的应用放在任何地方。
 
-In the next chapter we'll quickly get you set up with everything you need to develop for Firefox OS. 
+这里有个小小的注意事项，遗憾的是，某些与安全相关的WebAPIs太过敏感，不允许随便使用。如果你发布的应用用到了Privileged APIs，你需要Mozilla的审查和认证签名。
+
+## 总结
+
+HTML5已被广泛接受，将来只会变得越来越好。Firefox OS是由Mozilla开发的，完全基于Web技术的全新开源移动操作系统。此系统是完全开放的，它构建了一个稳健的HTML5实施平台，提供了一系列 *用Javascript访问操作系统服务* 的WebAPI，这点远非其他平台能比。这些新的APIs正通过万维网联盟(W3C)被标准化，并且将来非常有希望被其他浏览器采纳。
+
+下一章我们快速地帮你搭建好Firefox OS的开发环境。
