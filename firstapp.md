@@ -117,12 +117,11 @@ The editing screen is a bit more complex because it also holds the dialog box us
         <button id="back-to-list"><span class="icon icon-back">back</span>
         </button>
         <menu type="toolbar">
-            <a id="share-memo" href="#"><span class="icon icon-share">share</span>
+            <a id="share-memo" href="#"><span class="icon icon-share">edit</span>
             </a>
         </menu>
         <form action="#">
-            <input id="memo-title" placeholder="Memo Title" required="required"
-	           type="text">
+            <input id="memo-title" placeholder="Memo Title" required="required" type="text">
             <button type="reset">Remove text</button>
         </form>
     </header>
@@ -136,8 +135,7 @@ The editing screen is a bit more complex because it also holds the dialog box us
             </li>
         </ul>
     </div>
-    <form id="delete-memo-dialog" role="dialog" data-type="confirm"
-          class="hidden">
+    <form id="delete-memo-dialog" role="dialog" data-type="confirm" class="hidden">
         <section>
             <h1>Confirmation</h1>
             <p>Are you sure you want to delete this memo?</p>
