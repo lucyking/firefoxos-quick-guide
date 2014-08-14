@@ -1,48 +1,48 @@
-# Developer Tools {#developertools}
+# 开发者工具{#developertools}
 
-Firefox has many tools to help web developers do their job. Many people are still using [FireBug](https://addons.mozilla.org/pt-BR/firefox/addon/firebug/) and haven't realize that Firefox now has its own built-in tools. In this chapter we're going to review the tools that are most useful for developing apps for Firefox OS.
+Firefox提供了很多工具协助开发者。许多人一直在用[FireBug](https://addons.mozilla.org/pt-BR/firefox/addon/firebug/)，还没发现其实Firefox已经有内置的开发者工具箱了。在本章，我们将介绍几个对Firefox OS应用开发者最有用的工具。
 
-If you're interested in learning more about these tools, and what other dev tools goodness is about to land in Firefox, check out the [developer tools](https://developer.mozilla.org/en-US/docs/Tools) page on Mozilla's Developer Network (really, go check that link! I will wait).
- 
-## Introducing the Responsive Design View
+如果你想多了解这些工具，想知道还有哪些好用的开发者工具会登陆Firefox，可以去Mozilla开发者网络（Mozilla's Developer Network）查看[开发者工具](https://developer.mozilla.org/en-US/docs/Tools)页面（说真的，去看看吧！等你的好消息。）
 
-A common workflow in Web development is changing a HTML file and then reloading the page in the browser to see what's changed. Unless you are using something like Grunt or Volo, generally there won't be the need for a compilation step or similar. Even though the Firefox OS Simulator permits you to use that same workflow, the emulator is currently restricted to one resolution (480x320). This is less than ideal if you are also designing your application to work on tablets, phablets, giant TVs, or anything in between.  
+## 响应式设计视图介绍
 
-To check how your app will look on any screen resolution, you can use Firefox's **Responsive Design View** tool to change the screen (and viewport). It can be enabled by going to the **Tools menu -> Web Developer -> Responsive Design View** as shown in the image below. When you activate this tool, the window will change so that you can alter the viewport size using the drag corners or the selection box.
+Web开发过程中有个常见的流程：修改HTML文件，刷新页面，观察变化。除非你的项目已经用到了类似Grunt或Volo这样的自动化构建工具，否则，一般来说，没必要专门将这个流程自动化。在Firefox OS模拟器上也可以执行同样的流程，但模拟器的分辨率目前被限制在了480x320。如果你还想应用能运行在平板、平板电话、大尺寸电视或其他平台，这个分辨率远不能满足要求。
+
+想查看你的应用在任意分辨率下的情况，可以使用Firefox的**响应式设计视图**工具来调整屏幕（以及视区，也译作视口）。如下图所示，依次展开**工具 -> Web开发者 -> 响应式设计视图**便可开启。开启后，窗口马上发生了变化，这时你可以通过拖拽或选择框来改变视区尺寸。
 
 ![Activating Responsive Design View](images/originals/responsive-design-view.png)
 
-Using the responsive design view is specially useful for testing out [**media queries**](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries), as it allows you to resize the screen and see how your site responds to changes in layout in real time. Another great feature of the Responsive Design View is that you can save predefined sizes. If you know what viewport sizes you are targetting, then your can quickly check different viewport sizes without needing to resize the actual browser window. 
+测试[**media queries**](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries)时，响应式设计视图非常有用。因为它可以让你在调整分辨率后，实时查看网页布局的变化。响应式设计视图还有个很棒的功能：保存预设尺寸。假设你知道目标分辨率，你无需调整浏览器的尺寸就能查看不同分辨率下的页面情况了。
 
 ![Responsive Design View Sample](images/originals/responsive-view-sample.png)
 
-At the time of writing, most of the Firefox OS phones that are on the market are running on a 480x320 resolution - and at a pixel density of about 96 pixels-per-inch. However, you should expect this to change as new Firefox OS hardware becomes available as time goes on: screens will likely pack more pixels and have higher pixel densities (just like Apple's retina displays). 
+在本书编写之际，市场上大多数Firefox OS手机的分辨率都是480x320，约96 PPI（pixels per inch，每英寸所拥有的像素数目）。但是，你应该预想到，将来随着Firefox OS设备硬件的发展，这些都会改变：屏幕分辨率越来越高，PPI也随之越来越高（就如Apple的retina视网膜显示技术）。
 
-To future proof your app, don't hard-code your CSS to any resolution or pixel density. Instead, you should use media queries and the responsive design methodology to create apps that adapt to any screen size. To learn more about responsive design, I recommend the following books [Responsive Web Design](http://www.abookapart.com/products/responsive-web-design) and [Mobile First](http://www.abookapart.com/products/mobile-first).
+为了让应用能够适应未来的发展，不要把CSS值固定在某一分辨率或PPI，而是应该运用media queries和响应式设计思想，开发出适应任何屏幕尺寸的应用。想学习更多响应式设计技巧的话，我推荐两本书：[Responsive Web Design](http://www.abookapart.com/products/responsive-web-design)和[Mobile First](http://www.abookapart.com/products/mobile-first)。
 
-In summary, the responsive design view allows us to test our web applications using many different screen sizes without the need to resize the Firefox browser window itself. In my humble opinion this is one of the most useful web developer tools available - but it has one big limitation: it does not currently allow you to test different pixel densities (i.e. to see what your site would look like on a "retina" display or better).
+总之，响应式设计视图使得我们无需调整浏览器窗口，就能在各种不同分辨率下测试Web应用。在我看来，这是最有用的Web开发者工具之一。不过它有个很大的局限性：目前还不能用它测试不同的PPI（例如，查看网站在retina或更高PPI屏幕下的显示情况）。
 
-## Developer tools
+## 开发者工具
 
-Firefox's developer tools are similar to FireBug and the tools available in other modern browsers. Using these tools you can execute and debug your JavaScript using [the console](https://developer.mozilla.org/en-US/docs/Web/API/console), and manipulate both the DOM and the CSS on the current page.  
+Firefox的开发者工具和Firebug以及其他现代浏览器内置的工具相似。依靠这些工具，你可以在[控制台](https://developer.mozilla.org/en-US/docs/Web/API/console)执行和调试Javascript，操作当前页面的DOM和CSS。
 
-To bring up the console, you can either:
+要打开控制台，可以：
 
-	* Go to "Tools menu > Web Developer > Web Console". 
-  * right-click on the page you want to debug, and select "Inspect Element", then click on "Console" tab. 
+  * 依次展开“工具 > Web 开发者 > Web 控制台”
+  * 在需要调试的页面右击，选择“查看元素”，然后点击“控制台”标签。
 
 ![JavaScript Console](images/originals/console-open.png) 
 
-Besides the *JavaScript Console* there are many other tools available such as [*the style editor*](https://developer.mozilla.org/en-US/docs/Tools/Style_Editor), [*the network monitor*](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor), [*the JavaScript profiler*](https://developer.mozilla.org/en-US/docs/Tools/Profiler), [*the JavaScript debugger*](https://developer.mozilla.org/en-US/docs/Tools/Debugger), [*the page inspector*](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector) and many others.
+除了*控制台*，还有很多其他工具供开发者使用，包括但不限于[*样式编辑器*](https://developer.mozilla.org/en-US/docs/Tools/Style_Editor), [*网络*](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor), [*分析器*](https://developer.mozilla.org/en-US/docs/Tools/Profiler), [*调试器*](https://developer.mozilla.org/en-US/docs/Tools/Debugger), [*查看器*](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector)。
 
-In the application we've built in the previous chapter, we used the console to check the progress of our application. This is a pretty powerful way to debug our apps - but some developers are still  using `alert()` all over their JavaScript code as their "debug tool". 
+在上一章我们开发应用时，用到了console来查看应用的进展。这是一种非常强大的调试方法，然而部分开发者还在用“alert()”来调试他们的Javascript代码。
+   
+使用“alert()”真的不是个好主意，假如开发者忘记把它们移除，最终遭罪的还是用户。而console就能避免这个问题，它会无痛无害（无声无息）地把所有调试信息输出到一个用户平常不会打开的地方，用户体验得以保障。使用console还有个好处，你不必删除代码里的调试信息了，当然删不删都随你。当程序出错的时候（这种事再常见不过了），这对代码维护和调试很有用。
 
-Using `alert()` is really bad because if one forgets to remove any `alert()`s, it's the user's who will ultimately pay the price. Using the console avoids this problem as it harmlessly (and silently!) routes all messages to a place that user's don't normally access - so it doesn't disrupt the user experience. Using the console also means you don't need to remove your console messages from your code, unless you really want to. This can help with code maintenance and debugging if things do go wrong (as they generally do with any software!).   
+要成为一名称职的开发者，学会正确使用Firefox（或其他浏览器）内置的开发者工具是必不可缺的一步。这就是为何我建议每个人都去看看前面提到的链接，熟悉Firefox现有的各种工具。
 
-Learning how to properly use the developer tools bundled with Firefox (or whatever browser you're using) is an important step in becoming a better developer. That's why I advise everyone to check the links above and get more familiar with the various tools available in Firefox. 
+有一个特殊工具我上面没提到，[*远程调试*](https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging)。它允许我们连接Android或Firefox OS手机，然后使用开发者工具实时调试手机的应用。
 
-One special tool that was not mentioned above is the [*remote debugger*](https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging). That tool allows us to connect to a phone running Android or Firefox OS, and use the developer tools to debug the code that is running on the device in real time. 
+## 总结
 
-## Summary
-
-This chapter provided a brief tour of the developer tools that come bundled with Firefox. Using these tools will make your development process easier, specially when you use them together with the Firefox OS simulator. They are an indispensable combination for putting together an application. In the next chapter we're going to learn more about the simulator and how to make the best use of it.
+本章我们简单介绍了Firefox内置的开发者工具。这些工具能简化你的开发过程，尤其是结合Firefox OS模拟器使用。它们是开发应用密不可分的一体。下一章，我们将进一步了解模拟器，学习如何充分利用它。
