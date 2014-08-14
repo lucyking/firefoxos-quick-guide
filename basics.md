@@ -56,7 +56,7 @@ Firefox OS中的安全级别分为三级，级别越高，能调用的API函数�
 
 在开发中，我们可以直接调用用户级API函数而无需取得Mozilla的许可。但是当在发布一个用户级应用之前，需要先将其提交到Firefox应用市场。代码审查也是严格审核的一部分，如果没有问题的话，应用就会获得电子签名-即告诉Firefox OS用户该应用对那些敏感API函数的调用是获得官方许可的。
 
-在MND上的[WebAPI函数手册页面](https://developer.mozilla.org/en-US/docs/WebAPI)我们可以看到各类平台对应的API函数以及各API函数需要的权限级别。
+在MDN上的[WebAPI函数手册页面](https://developer.mozilla.org/en-US/docs/WebAPI)我们可以看到各类平台对应的API函数以及各API函数需要的权限级别。
 
 ![Access levels for the APIs](images/originals/webapi-access.png)
 
