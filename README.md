@@ -45,7 +45,7 @@ This book is distributed using Creative Commons license. More information inside
 - [ ] front.md
 - [x] introduction.md
 - [ ] marketplace.md
-- [ ] setup.md
+- [x] setup.md
 - [ ] simulator.md
 
 ## 贡献者
@@ -57,20 +57,20 @@ git summary
 
  project  : firefoxos-quick-guide
  repo age : 12 months
- active   : 20 days
- commits  : 99
+ active   : 21 days
+ commits  : 111
  files    : 335
  authors  :
-    41  Andre Alves Garzia  41.4%
-    23  Marcos Caceres      23.2%
-    10  Liu Xing            10.1%
-    10  刘星                10.1%
-     6  Andre Jaenisch      6.1%
-     3  lucyking            3.0%
-     2  Daniel Holbert      2.0%
-     2  filipecatraia       2.0%
-     1  Sean Silva          1.0%
-     1  Yuan                1.0%
+    41  Andre Alves Garzia  36.9%
+    23  Marcos Caceres      20.7%
+    16  Liu Xing            14.4%
+    14  刘星                12.6%
+     6  Andre Jaenisch      5.4%
+     3  Yuan                2.7%
+     3  lucyking            2.7%
+     2  Daniel Holbert      1.8%
+     2  filipecatraia       1.8%
+     1  Sean Silva          0.9%
 ```
 
 ## l10n
