@@ -1,11 +1,11 @@
 # Developer Tools {#developertools}
 
-Firefox拥有很多可以为开发者提供帮助的工具。很多人仍然在用[FireBug](https://addons.mozilla.org/pt-BR/firefox/addon/firebug/)而对Firefox当前已经有内置的开发工具一无所知。本章我们将涉略那些在Firefox OS应用开发中对开发者帮助最大的那些工具。
+Firefox拥有很多可以为开发者提供帮助的工具。很多人仍然在用[FireBug](https://addons.mozilla.org/pt-BR/firefox/addon/firebug/)而对Firefox当前已经内置的开发工具一无所知。本章我们将涉略那些在Firefox OS应用开发中对开发者帮助最大的工具。
 
 如果你想了解关于这些工具的更多信息，以及又有哪些新的开发登录Firefox，参见MDN上的[developer tools](https://developer.mozilla.org/en-US/docs/Tools)（你真的应该点击链接去看看，等你看完我再继续讲）。
 
 ## Responsive Design View 简介
-网页开发的时候经常会修改某个HTML文件然后在浏览器中重载文件来查看变化。通常没有使用诸如Grunt或Volo之类的工具的话，就没有必要进行诸如重新编译之类的操作。尽管Firefox OS模拟器可以采用类似的开发流程，但是其屏幕分辨率是固定的（480x320）。这对需要开发跨平台应用的开发者来说并不理想。
+网页开发的时候经常会修改某个HTML文件然后在浏览器中重载文件来查看变化。通常没有使用诸如Grunt或Volo之类的自动化工具的话，就没有必要进行诸如重新编译之类的操作。尽管Firefox OS模拟器可以采用类似的开发流程。但是由于其屏幕分辨率是固定的（480x320），所以对需要开发跨平台应用的开发者来说并不理想。
 
 为了能够查看你的应用在不同分辨率设备上的不同效果，你可以使用Firefox中的**Responsive Design View**工具来更改屏幕大小（和方向）。如下图所示，按照这个步骤打开该工具：**Tools menu -> Web Developer -> Responsive Design View**。之后你就可以通过拖拽边角和在选框中选择不同选项来改变屏幕。
 
