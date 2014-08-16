@@ -1,98 +1,98 @@
-# The Firefox OS Simulator {#simulator}
+# Firefox OS模拟器{#simulator}
 
 ![Firefox OS Simulator Dashboard](images/originals/simulator-dashboard.png)
 
-W>Attention: This chapter is here for compatibility with devices running Firefox OS 1.1. The current method for testing and debugging apps is the **App Manager** which we talked about in the previous chapter. The content of this chapter is just for people testing stuff on Firefox OS version 1.1.
+W>注意：本章内容适用于运行Firefox OS 1.1的设备。当前的主流测试和调试方法是使用**应用管理器**，我们在上一章已详细介绍。本章仅供需要在Firefox OS 1.1设备测试的人参考。
 
-W>Attention: If you're running **Firefox 29 or newer** and you have a device running **Firefox OS 1.1 or earlier** then you will need another version of the **Firefox OS 1.1 Simulator** that is not currently listed on the add-ons marketplace. This version is **BETA** but its the best we've got right now. You can fetch it for [Mac OS X](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-mac.xpi), [Linux](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-linux.xpi) or [Windows](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-windows.xpi). Just drop the xpi file on Firefox and follow the installation instructions. If you want to follow up on the quest of making the **Firefox OS 1.1 simulator** work on **Firefox 29** then check out [bug request #1001590 it](https://bugzilla.mozilla.org/show_bug.cgi?id=1001590).
+W>注意：如果你的Firefox版本为29或以上，且设备运行的是**Firefox OS 1.1或更早版本**，那么你需要另一个版本的**Firefox OS 1.1模拟器**，此版本在附加组件商店是找不到的。它尚处于**BETA**阶段，但已经是现在能下载到的最好的版本了。点击链接下载，[Mac OS X](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-mac.xpi), [Linux](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-linux.xpi) or [Windows](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-windows.xpi)。只需把下载到的xpi文件拖进Firefox，然后根据提示进行安装。要是你想研究一下怎么在**Firefox 29**上安装**Firefox OS 1.1模拟器**，可以参考[bug request #1001590 it](https://bugzilla.mozilla.org/show_bug.cgi?id=1001590)。
 
+我们在[搭建Firefox OS开发环境](#setup)章节安装好了模拟器，并在[开发首个应用](#firstapp)章节使用了它。现在让我们进一步研究模拟器的功能，学会用它来完成常见任务。
 
-We've installed the Firefox OS Simulator in [the chapter about preparing the environment](#setup) and we used it on the [chapter about building our first app](#firstapp). Now we're going to take a deeper look into the simulator features and learn how to do the most common tasks.
+若想深入了解模拟器，请移步MDN查看[Firefox OS Simulator](https://developer.mozilla.org/en-US/docs/Tools/Firefox_OS_Simulator)文档。
 
-To learn more about it, check out [the Firefox OS Simulator documentation](https://developer.mozilla.org/en-US/docs/Tools/Firefox_OS_Simulator) on MDN.
+请谨记，如果设备运行的是Firefox OS 1.2+版本，你需要使用应用管理器，而不是Firefox OS模拟器。应用管理器的内容已在上一章详述。
 
-Remember that if you are using a device running Firefox OS 1.2+ then you need to use the App Manager with it and not the Firefox OS Simulator. The App Manager was described in the previous chapter.
+## 添加应用
 
-## Adding Apps
+可以在应用管理器上添加托管应用和已打包应用。让我们分别看看添加方法。
 
-You can add both hosted and packaged apps to the simulator. Lets see how to add each type of app.
+### 添加已打包应用
 
-### Adding packaged apps
+在[开发首个应用](#firstapp)章节，我们已经学习了如何添加已打包应用，但为了方便对比，我决定重述一遍要点。
 
-You already saw how to add packaged apps to the simulator during [our first app creation](#firstapp), but we're going to do a recap so I can show you what else is possible.
-
-To add a new packaged application click the **Add Directory** button on the **Simulator Dashboard** as shown in the screenshot below.
+如下图所示，在**模拟器面板**点击**添加文件夹**来添加已打包应用。
 
 ![Showing the *Add Directory* button that adds a packaged app to the simulator](images/originals/simulator-add-directory.png)
 
-When you click on the button highlighted on the image, Firefox opens a file selection dialog. You should browse your hard drive and select the **app manifest file** for the application that you want to add to the simulator. If there are no issues with your manifest and your start file is ok, the application will be added and the simulator will launch with your app running. If there is anything wrong with your manifest, or some other issue, then an error report will be shown on the dashboard.
+按照图中箭头的指示，点击按钮，Firefox会弹出文件选择框。浏览硬盘文件，选择要添加的**应用manifest**。如果manifest文件和起始页的配置正确无误，应用将被成功添加，同时模拟器会开始运行它。假如manifest文件或其他地方出错，面板上会显示错误报告。
 
 ![Example of an invalid manifest](images/originals/simulator-invalid-manifest.png)
 
-Whenever you update your application you should click **Refresh** to update the version of the app on the simulator (you can also press CMD/CTRL+R on the simulator window to refresh).
+每次应用改动后，都需要先点击**刷新**按钮以更新模拟器上的应用版本（也可在模拟器内按下CMD/CTRL+R来刷新）。
 
-### Adding hosted apps
+### 添加托管应用
 
-If you're building a hosted app then you should test it by using a web server. Do not try to use the method described above for hosted apps because you may miss some errors that will only happen on a hosted environment - such as serving the manifest with the wrong *MIME type*. Note that the simulator won't warn you about things like incorrect MIME types, but it's important to get such things right if you submit your app to the Mozilla Marketplace.
+如果你的应用属于托管应用，你得在Web服务器上测试。别用之前的方法来测试托管应用，因为某些错误只在服务器环境产生，模拟器是不会提示的，例如识别不出manifest的*MIME类型*。在把应用提交到Mozilla Marketplace前，必须解决掉这些错误。
 
-Most of the hosted apps are not applications built exclusively for Firefox OS but responsive design based websites that are able to adapt themselves to different devices and resolutions. These web apps usually have a complex backend that needs to be in-place for the application to work and that's why you need to test the app using a real web server running your backend stuff.
+大部分托管应用并不是为Firefox OS单独开发的应用，而是基于响应式设计的网站，它们能够适配不同的设备和分辨率。为了能作为应用正常运行，它们的后台通常都十分复杂，这就是为什么要在真实的Web服务器环境测试的原因。
 
-To run your app in the simulator, fill the URL of your application in the text entry box on the top and click the **Add URL** button.
+要想在模拟器运行托管应用，在顶部文本框填上应用的URL，点击**添加URL**按钮。
 
 ![Adding a hosted app to the simulator](images/originals/simulator-add-url.png)
 
-After clicking the button, the manifest is verified and if it is correct the application is added and the simulator is launched with your application running. Like when we're adding packaged apps, if something wrong happens with in the manifest you will see a report (e.g. "app submission to the marketplace needs at least an 128 icon").
+点击后，manifest会被验证，如果配置正确，应用将被成功添加，同时模拟器会开始运行它。跟已打包应用一样，假如manifest配置不正确，面板会显示错误报告（比如“提交到marketplace的应用要求至少有一个128x128图标”）。
 
-As with packaged apps, whenever you update your application you should click **Refresh** to update the version of the app on the simulator (you can also press CMD/CTRL+R on the simulator window).
+每次应用改动后，都需要先点击**刷新**按钮以更新模拟器上的应用版本（也可在模拟器内按下CMD/CTRL+R来刷新），这点也跟已打包应用一样。
 
-## Debugging
+## 调试
 
-After the application is added to the simulator we're able to debug it by clicking the **Connect** button next to the application listing on the dashboard. This will launch the simulator with your application running and the **JavaScript Console** open and connected to your app.
+安装完毕后，可以点击应用旁边的**连接**按钮进行调试。此时你的应用将会在模拟器中运行，并且**调试器**也会打开，与应用连接。
 
 ![What button to press](images/originals/simulator-press-connect.png)
 
-After pressing this button you will see a screen like this:
+点击按钮后出现的界面如下图所示：
 
 ![Developer Tools connected to the app running on the simulator](images/originals/simulator-connected.png)
 
-With the tools connected to your app you can test your JavaScript, debug your DOM, edit styles, etc. Like those startup guys like to say: *pivot until your app is good*.
+应用连接上开发者工具后，你就可以进行测试Javascript，调试DOM，编辑CSS等操作了。套用一句创业公司常挂嘴边的话：*不断调整直到好用为止*。
 
-Once your app is running well on the simulator it's time to test on a real device.
+如果应用在模拟器上运行良好，那么是时候在真实设备上测试了。
 
-## Testing apps on a real device
+## 在真实设备上测试应用
 
-Nothing replaces testing on a real device. On the simulator, you test things by using a mouse and clicking on a computer screen; while on a real device you use your fingers on a touchscreen and by using physical buttons. Its a very different user and development experience.
+真实设备测试的重要性无可取代。在模拟器上，你对着电脑屏幕靠点击鼠标进行测试；在真实设备上，则要用手指在触摸屏滑动以及按压物理按钮。两者的用户体验和开发体验都相差甚远。
 
-As an example why this type of testing matters, let me tell you a brief story: Some years ago,   Raphael Eckhardt (the designer who created the cover of this book) and I were building a puzzle game not that disimilar to Bejeweled. Our game involved dragging and dropping some pieces on a board and was working pretty well on the simulator.
+我给大家讲个简单的故事，这个故事体现了在真实设备测试的重要性。几年前，我和Raphael Eckhardt（本书封面的设计者）开发了一个类似
+宝石迷情的智力游戏。游戏涉及到一些拖放操作，要把棋子拖放到棋盘。它在模拟器上完美运行。
 
-When we then tested the game on an actual phone we realized our game components were not touch friendly at all: when placing a hand over the screen the board would vanish behind the hand. Even worst, the pieces the users were supposed to drag were smaller than the user's finger tip, so the user couldn't see what they were doing! In summary, our UX sucked very badly. That happened because we're kept trying things only on the simulator with a mouse that used a tiny cursor. When we decided to try with our fatter-than-a-cursor fingers we realized that we need to rework our UI.
+然后我们把游戏装到了手机上，此时我们才察觉，这个游戏在触摸屏上根本没法玩。手在屏幕操控时，棋盘被手遮住了。更糟的是，棋子太小了，比指尖还小，用户完全看不到他们在拖动什么。一句话，用户体验烂成渣。究其原因，我们一直在凭借小小的鼠标指针在模拟器测试。当使用比指针粗得多的手指去操控时，我们意识到，整个UI不得不推倒重做。
 
-To avoid having a similarly depressing experience, always test on a real device... or two, or more if you can get your hands on some. And test often with simple prototypes: otherwise, you can waste valuable time and money having to recreate assets.
+为了避免惨剧重演，记住一定要找部真实设备来测试，哦不，两部，哦不，有多少测多少，越多越好。要经常做简单的原型测试，否则，你会浪费大量宝贵的时间金钱在重做资源文件上。
 
-You can buy a developer preview phone running Firefox OS from the [Geeksphone Shop](http://shop.geeksphone.com/en/). I recommend using a [Geeksphone Keon](http://www.geeksphone.com/) because this device has similar specs to the devices that are being launched by Mozilla's partners.
+你可以到[Geeksphone Shop](http://shop.geeksphone.com/en/)买部Firefox OS开发者预览版手机。我推荐[Geeksphone Keon](http://www.geeksphone.com/)，因为它的硬件配置和Mozilla合作伙伴推出的设备相近。
 
-You can also buy a device targeted at consumers if you happen to live in one of the countries where they are already available. A third way is that you can replace Android with Firefox OS on some devices (some specific devices only, chance of bricking, don't blame me!) - but I don't recommend this unless you're a power user and like to spend a lot of time hacking.
+面向消费者的Firefox OS设备已经在多个国家推出，假如你身处的国家刚好是其中之一，也可通过这种途径购买。还有个办法，把Android机刷成Firefox OS（只有几部特定型号才能刷，变砖了可别怪我！）。我不推荐此法，除非你是个喜欢折腾的高手。
 
-## Connecting with a Firefox OS device
+## 连接Firefox OS设备
 
-If you have a Firefox OS device (and have any needed drivers installed) then you can push apps directly from the simulator to the device if the device is connected to your computer. When the simulator detects that you plugged a Firefox OS phone, it will display a notice saying **Device Connected**.
+假如你有一部Firefox OS设备（所有驱动都已装好），并连接好电脑了，那么你可以通过模拟器直接把应用安装进手机。模拟器检测到插入的Firefox OS手机后，它会提示**设备已连接**。
 
 ![Device Connected!](images/originals/simulator-device-connected.png)
 
-If your phone is connected (and detected) the simulator will add a new button next to **Refresh** and **Connect** called **Push**. When you press this button, a **permission request dialog** appears on the device screen asking for confirmation to install the pushed app.
+如果手机已经连接好，模拟器会在**刷新**和**连接**旁边新增一个**推送**按钮。点击它，设备屏幕出现个**许可请求窗口**，询问是否确定安装此应用。
 
 ![Which button to press to push apps to the connected device](images/originals/simulator-press-push.png)
 
-And below we can see the permission request screen.
+下图是许可请求界面。
 
 ![Not the best picture in the world but shows the permission screen (sorry for the face it was 4:25 AM)](images/originals/simulator-remote-push.jpg)
 
-With the application running on the device you can use *remote debugging* to connect a JavaScript console and debug the app.
+你可以通过*远程调试*连接调试器来调试应用。
 
-## Summary
+## 总结
 
-In summary, the Firefox OS Simulator is awesome for building Firefox OS specific apps - but has some limitations if you are trying to build for a range of devices (e.g. currently, you can't emulate what Firefox OS would feel like on a tablet).
+总而言之，Firefox OS模拟器在开发某些应用时很好用。但假如你想用模拟器开发一个适配多种设备的应用，它的局限性暴露无遗（例如，目前它模拟不了Firefox OS在平板上的使用情景）。
 
-Besides feeling awesome and empowered, by this point in the book you hopefully have a good grasp of the workflow for building apps for Firefox OS.
+学到现在，除了感叹和鼓舞，但愿你还掌握了开发Firefox OS应用的流程。
 
-In the next chapter we'll talk about the new app manager which is the new system that Mozilla is building to debug apps. It has more features than using just the Firefox OS Simulator.
+下一章我们来谈谈全新的应用管理器，它是Mozilla新引入的应用调试系统，相比Firefox OS模拟器而言，它拥有更多功能。
