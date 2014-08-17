@@ -1,4 +1,3 @@
-# Distributing Your Apps {#distribution}
 # 发布你的应用 {#distribution}
 
 应用已经开发完毕，我们得考虑一下怎样给用户使用。我在[介绍](#introduction)章节提到过，Mozilla不会强迫我们使用官方发布渠道，在哪里发布作品完全由我们自己做主。本章将介绍如何**在[Firefox Marketplace](http://marketplace.firefox.com)外**发布应用。
