@@ -1,33 +1,33 @@
-# 发布你的应用 {#distribution}
+# Distributing Your Apps {#distribution}
 
-应用已经开发完毕，我们得考虑一下怎样给用户使用。我在[介绍](#introduction)章节提到过，Mozilla不会强迫我们使用官方发布渠道，在哪里发布作品完全由我们自己做主。本章将介绍如何**在[Firefox Marketplace](http://marketplace.firefox.com)外**发布应用。
+Now that our application is ready we need to figure out a way to get it to our users. In the [introduction chapter](#introduction) I mentioned that, unlike Apple, Mozilla does not force you to use their distribution channels - we're free to spread our creations as we wish. In this chapter we're going to learn how to distribute our app **outside the [Firefox Marketplace](http://marketplace.firefox.com)**. 
 
-个人愚见，在以下两个场景你可能会选择在Mozilla Marketplace外发布。
-  
- 1. 你的应用仅供公司内部或指定用户使用。放到Marketplace的话，所有人都能下载了。若想限制使用人群，你需要在服务器后台增加身份验证或类似的模块。举个例子，*Evernote*首次运行时，它会要求用户先登录到它的服务器。
+In my humble opinion, distributing your application outside the Mozilla Marketplace makes sense in the following two situations. 
 
- 2. 你已经拥有庞大的用户群，可直接向他们发布。以*Financial Times*这类新闻报纸为例，他们在自己网站上发布就能覆盖大部分用户。请记住，你的应用可以同时在Firefox Marketplace发布，这样不但能利用自己的发布渠道，还能借助Firefox Marketplace开拓新用户。
+ 1. You're developing an application for internal use within your company, or to a restricted/limited group of users. If you ship it to the marketplace then it will be available to anyone and if you want to restrict the usage of the app to a group of people then you will need some kind of authentication scheme with a server backend or something similar. For example, when the *Evernote* application is launched for the first time, it asks the user to log in their servers.   
 
-托管应用和已打包应用的发布流程差不多，但所用函数不同，因此我会分开讨论。不管是托管应用还是已打包应用，流程大体相同：在主页放一个类似**点击安装**的按钮（超链接），或者提供一个特殊URL，用户点开后自动开始安装。两种方法都会弹出提示框，询问用户是否确定安装此应用。
+ 2. You already have a huge user-base that you can tap into for your app distribution. An example of this would be a news paper, like the *Financial Times*, which can simply distribute their app on their own website and reach most of their users. Remember that you can distribute your application outside the marketplace and in the marketplace at the same time, so if you already have your own marketing channel you can leverage that while still using the marketplace for reaching new users outside your own channel.
 
-## 托管应用
+The distribution process for hosted and packaged apps is similar, but it uses different functions. Thats why I'm discussing them separately. Regardless if your app is hosted or packaged, the workflow is usually the same: you provide a button or link on your own home page that says something similar to **Click to Install Our App**,  or you use a special URL that when launched causes the installation routine to run. In both cases, a dialog is presented to the user asking him or her to confirm that they want to install the given app.
 
-<<[托管应用的安装代码](code/distribution/hosted_apps_distribution.js)
+## Hosted Apps 
 
-在上面的示例代码中，“manifestURL”的值是manifest文件的地址。代码运行时，系统会询问用户是否确定安装此应用，然后根据用户选择返回success或error事件。
+<<[Code for hosted app installation](code/distribution/hosted_apps_distribution.js)
 
-若想深入了解这个API，请移步MDN查看[安装应用](https://developer.mozilla.org/docs/Apps/JavaScript_API)页面。
+In the sample above `manifestURL` contains the address for the manifest file. When this code runs, the system asks the user to confirm his desire to install the given application and depending on the choice of the user it runs the success or the error callback. 
 
-## 已打包应用
+To learn more about this API check [the MDN page about application installation](https://developer.mozilla.org/docs/Apps/JavaScript_API).
 
-已打包应用的安装代码和托管应用差不多，不过不是调用“mozApps.install()”，而是“mozApps.installPackage()”，示例代码如下：
+## Packaged Apps
 
-<<[已打包应用的安装代码](code/distribution/packaged_apps_distribution.js)
+Packaged app installation is similar but instead of calling `mozApps.install()` we call `mozApps.installPackage()` as shown in the sample code below.
 
-W> 注意：如果已打包应用是在Marketplace外发布的话，估计Firefox OS 1.0.1设备安装不了。虽然提供了API，但我没试过。有试过的同学，请把结果反馈给我，我会更新本书内容。
+<<[Code for packaged app installation](code/distribution/packaged_apps_distribution.js)
 
-## 总结
+W> Warning: I have the impression that packaged app installation outside of the marketplace is not possible on Firefox OS version 1.0.1. Even though the API is documented, I have never tried it. Please if you try it, send me feedback so that I can update this book.
 
-本章讨论了如何使用*Open Web Apps*的安装管理API在Firefox Marketplace外发布应用。这些API还可以做很多事，例如检测应用是否已安装，如果是，你可以隐藏*点击安装*按钮。 若想进一步了解API的用法，可移步MDN查看[安装应用](https://developer.mozilla.org/docs/Apps/JavaScript_API)页面（没错，我上面提过了，但这一次，点开它吧，里面有重要内容）。
+## Summary
 
-下一章我们将学习如何在Firefox Marketplace发布应用。
+This chapter discussed options for distributing applications outside of the Firefox Marketplace by using the installation and management APIs for *Open Web Apps*. There are many other routines available to do things such as checking if your application is installed (so that you can hide that *Click Here To Install* button). To learn more about those APIs check out the [MDN page about application installation](https://developer.mozilla.org/docs/Apps/JavaScript_API) (yes, gave you this link before - this time, click it! There is important stuff there).
+
+In the next chapter we're going to learn how to distribute our apps through the Firefox Marketplace.
