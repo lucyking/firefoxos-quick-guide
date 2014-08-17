@@ -21,7 +21,7 @@
 
 ## 准备提交应用
 
-托管应用和已打包应用的提交步骤是不同的。就托管应用而言，只需确保拥有正确的MIME类型和manifest文件，并能被在线访问到。已打包应用则需要以*zip*格式压缩，且还有些注意事项。
+托管应用和打包应用的提交步骤是不同的。就托管应用而言，只需确保拥有正确的MIME类型和manifest文件，并能被在线访问到。打包应用则需要以*zip*格式压缩，且还有些注意事项。
 
 很多开发者会错把包含应用文件的文件夹打包了。这导致压缩包包含一个文件夹，该文件夹包含应用。这是错误的打包方式。正确做法是：打包后，manifest文件位于压缩包的根目录。Mac OS X和Linux用户可使用terminal导航到应用文件夹，运行命令，如“zip -r myapp.zip *”，来正确打包应用，如下图所示：
 
@@ -45,13 +45,13 @@
 
 在此页面有以下选项可选：
 
-* 托管应用还是已打包应用
+* 托管应用还是打包应用
 * 免费还是付费（或者应用内购买）
 * 支持哪些平台（Firefox OS, Firefox桌面版, Firefox手机版, Firefox平板版）
 
-选择完后自动进入下一屏。本书着重讲解已打包应用的发布，但其实托管应用的流程大体相同。
+选择完后自动进入下一屏。本书着重讲解打包应用的发布，但其实托管应用的流程大体相同。
 
-在本章剩余的内容里，我们假设要发布的是免费的Firefox OS已打包应用。这种情况下，我们需要上传前面准备好的zip压缩包。
+在本章剩余的内容里，我们假设要发布的是免费的Firefox OS打包应用。这种情况下，我们需要上传前面准备好的zip压缩包。
 
 上传完毕，它会开始自动处理，生成一个包含很多选项的报告。
 
@@ -75,6 +75,6 @@
 
 我希望你喜欢这本快速指南。我打算经常更新和扩展该指南，所以请持续关注，订阅更新吧。如果你的书是在Leanpub下载的，很好，每次更新你都会收到邮件。如果是在别处下载的，请考虑在[Leanpub的官方页面](http://leanpub.com/quickguidefirefoxosdevelopment)获取更新，以及用邮件订阅。本书完全免费，而且你绝对不会收到任何垃圾邮件，我保证。
 
-欢迎反馈。这本书是我在一个科技大会召开前，抽出很多晚时间写出来的，所以你能体会我是有多享受这个项目，多想看它成功。如有反馈，可去Twitter[@soapdog](http://twitter.com/soapdog)，或者发送邮件到[fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com)。我的个人主页是[http://andregarzia.com](http://andregarzia.com)。
+欢迎反馈。这本书是我在一个科技大会召开前，抽出两晚通宵赶出来的，所以你能体会我是有多享受这个项目，多想看它成功。如有反馈，可去Twitter[@soapdog](http://twitter.com/soapdog)，或者发送邮件到[fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com)。我的个人主页是[http://andregarzia.com](http://andregarzia.com)。
 
 现在你是Firefox OS应用开发者的一员了，来成为我大Mozilla社区的一员吧，Mozilla社区致力于打造自由的网络，对用户完全开放的网络。来[http://www.mozilla.org/contribute/](http://www.mozilla.org/en-US/contribute/)加入我们，帮助Firefox OS成长！
