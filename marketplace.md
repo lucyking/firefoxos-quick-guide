@@ -1,81 +1,80 @@
-# The Firefox Marketplace
+# Firefox Marketplace
 
 ![Firefox Marketplace](images/originals/marketplace.png)
 
-The [Firefox Marketplace](http://marketplace.firefox.com) is the online shop where you can buy or download applications for Firefox OS, Firefox, and Firefox For Android. This is the main channel for distributing Firefox OS applications, but you're not required to use it. If you want to distribute things outside the marketplace, read the [previous chapter](#distribution).
+[Firefox Marketplace](http://marketplace.firefox.com)是一个在线商店，用户可在上面购买或下载Firefox OS、Firefox和Android版Firefox的应用。这是发布Firefox OS应用的主要渠道，但不是唯一渠道。如果你想在Firefox Marketplace外发布应用，请参考[上一章](#distribution)。
 
-To place your apps on the marketplace you need to be identified via [Mozilla Persona](https://login.persona.org/about). Just click **Sign Up** and follow the instructions. Once you're identified, you will be ready to submit apps to the Firefox Marketplace.
+要提交应用到Marketplace，首先需要通过[Mozilla Persona](https://login.persona.org/about)的验证。点击**登录**，按照指示操作即可。验证成功后，你就可以准备提交了。
 
-## Checklist before even thinking about sending an app to the marketplace
+## 产生提交应用的想法之前就应该核对好的清单
 
-All applications that are submitted to the marketplace go through an approval process (less scary than it sounds!). Hosted web applications go through a lighter process than privileged apps because they use less sensitive APIs. Before sending your application to the marketplace check out [the marketplace review criteria](https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Marketplace_review_criteria). The most important parts are (IMHO): 
+所有提交到Marketplace的应用都有个审批流程（听起来吓人而已！）。托管应用的审批没privileged应用那么严格，因为前者没有涉及敏感API。提交前，先看看Marketplace的[审查准则](https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Marketplace_review_criteria)。最重要的部分是(个人愚见)：
 
-* Firefox OS devices do not have a **back button** like Android and your desktop browser. If the user navigates to a screen inside your app where there is no way for them to get back to the previous place  (i.e. the user gets stuck), your app will be rejected.
-* Your app should have a 60x60 icon and clear descriptions.
-* Your app should do what the description says. Saying one thing and providing something else will get your app rejected.
-* If your app asks for a given permission then you should use it somewhere in your code. Flagging your application as a privileged app and not using any privileged app API will cause your app to be rejected with a request that you submit again as a plain app.
-* Your application needs to have a *privacy policy* in place.
-* Manifest files should be served with the correct MIME type and come from the same domain as the app for hosted apps.
+* Firefox OS设备没有Android和桌面浏览器那种**返回按钮**。假如用户点进了应用的某个地方，但没办法返回上处（即被困住了），你的应用将被驳回。
+* 应用需要提供一个60x60的图标和清晰的描述。
+* 应用的功能应和描述一致。描述的功能若和实际提供的功能不一致，应用将被驳回。
+* 如果应用申请了某权限，那么你必须在代码使用它。把你的应用标记为privileged应用，但是代码却没有使用任何privileged API的话，应用会被驳回，并要求你重新提交为普通应用。
+* 应用必须包含*隐私政策*说明。
+* Manifest文件的MIME类型必须能被服务器正确识别，并和托管应用放在同一域下。
 
-There are other criteria discussed in the link above - and the rules can change without notice. It will be worth your time to read that page. Getting your application rejected because of small stuff that is easy to fix is a huge waste of time. Better get things right the first time (reviewers love to approve good apps!). 
+上述链接还提到了其他准则 - Mozilla有权随时修改，不会另行通知。该页面内容值得你花时间阅读。要是因为一些容易修复的小问题而被驳回，那可真是太浪费时间了。最好第一次就把全部东西准备妥当（好的应用很受审核员青睐！）
 
-## Preparing your app for submission
+## 准备提交应用
 
-The steps required to submit your application to the marketplace are different depending on whether it's a hosted or a packaged app. For a hosted app, it  just needs to be accessible on the Internet with the correct MIME type and manifest in place. Packaged apps need to be compressed using *zip* and deserve some extra attention. 
+托管应用和已打包应用的提交步骤是不同的。就托管应用而言，只需确保拥有正确的MIME类型和manifest文件，并能被在线访问到。已打包应用则需要以*zip*格式压缩，且还有些注意事项。
 
-Many developers make the mistake of selecting the folder containing the application files and zipping it. This causes the zip file to contain a folder and this folder to contain the app. This is not the correct way to zip a Firefox OS application. The correct way is to zip the files and folders needed so that the manifest is on the *root level* of the zip file. On Mac OS X and Linux you can use the terminal to navigate to your application folder and use a command such as `zip -r myapp.zip *` to compress things correctly as shown on the screenshot below.
+很多开发者会错把包含应用文件的文件夹打包了。这导致压缩包包含一个文件夹，该文件夹包含应用。这是错误的打包方式。正确做法是：打包后，manifest文件位于压缩包的根目录。Mac OS X和Linux用户可使用terminal导航到应用文件夹，运行命令，如“zip -r myapp.zip *”，来正确打包应用，如下图所示：
 
 ![Correctly zipping the files](images/originals/marketplace-preparing-packaged-app.png)
 
-This zip file is what we send to the marketplace.
+这个zip压缩包就是我们要提交到Marketplace的。
 
-## Submitting your app to the marketplace
-
-Now with your application ready, and with the firm knowledge that it meets the review criteria, its time we send it to the marketplace. To do so browse to **My Submissions** using the gear button on the top of the marketplace page.
+## 提交应用到Marketplace
+ 
+应用已经准备就绪，并且你确定它是遵循审查准则的，那么是时候提交到Marketplace了。点击Marketplace页面顶部的齿轮，选择“我的应用”。
 
 ![My Submissions](images/originals/marketplace-my-submissions.png)
 
-Inside the application management page, you need to click on **Submit An App** on the top menu.
+在应用管理页面，点击顶部菜单的**提交一个应用**。
 
 ![Submit An App](images/originals/marketplace-new-app.png)
 
-This link will lead you to the form for submitting new apps, as seen in the screenshot below.
+这个链接会把你带到提交新应用的表单，如下图所示。
 
 ![Submit New App](images/originals/marketplace-step-1.png)
 
-On this screen you will select the following options:
+在此页面有以下选项可选：
 
-* If the application is hosted or packaged.
-* If it is free or paid (or uses *in-app purchases*).
-* What type of devices it is available for (Firefox OS, Firefox Desktop, Firefox for Mobile on phones, Firefox for Mobile on Tablets).
+* 托管应用还是已打包应用
+* 免费还是付费（或者应用内购买）
+* 支持哪些平台（Firefox OS, Firefox桌面版, Firefox手机版, Firefox平板版）
 
-After making these choices you're driven to the second screen. On this book we're focusing on packaged apps but hosted apps are similar. 
+选择完后自动进入下一屏。本书着重讲解已打包应用的发布，但其实托管应用的流程大体相同。
 
-In the remaining text of this chapter we're assuming that we're shipping a free Firefox OS packaged app. In this case we need to upload the zip file we prepared on the previous section.
+在本章剩余的内容里，我们假设要发布的是免费的Firefox OS已打包应用。这种情况下，我们需要上传前面准备好的zip压缩包。
 
-After uploading the file, it undergoes an automated process and a report is shown with many options.
+上传完毕，它会开始自动处理，生成一个包含很多选项的报告。
 
 ![After the zip upload](images/originals/marketplace-step-1_5.png)
 
-From the screen shot above we can see that the app I sent to the marketplace has no errors but contains six warnings. Ignoring the warnings for the sake of this text, lets check what the **minimum requirements** for this app are. In this case, the last option *Smartphone-Sized Displays (qHD)* should be unchecked because our application adapts to any screen size.
+如上图所示，刚才提交的应用没出错，但包含了6个警告。为了继续演示，我们忽略掉，接着来勾选*应用最低需求*。在这里，最后的*智能手机尺寸的屏幕(有qHD分辨率)*不要勾选，因为我们的应用可适配各种屏幕尺寸。
 
-The next step is called **Step #3: Details** and it is where you fill the information about your application such as category, description, screen captures, etc.
+下一步是**步骤 #3: 详情**，你需要补充完整应用的信息，例如分类、描述、截图等。
 
 ![Filling details](images/originals/marketplace-step-3.png)
 
-After filling-in the details, the submission process is done. Now you just wait for the approval from the marketplace reviewers. Congratulations you shipped a Firefox OS application!!!
+填写完详情后，整个提交过程结束。现在只需等待Marketplace审核员的通过了。恭喜你提交了一个Firefox OS应用！
 
-On the [Application Management page](https://marketplace.firefox.com/developers/submissions) you can check the status of your submissions and alter details if needed.
+你可以到[应用管理页面](https://marketplace.firefox.com/developers/submissions)查看提交状态，有需要的话还可以修改详情。
 
-To learn more about submitting applications to the Firefox Marketplace read [this article on the Firefox OS developer hub](https://marketplace.firefox.com/developers/docs/submission).
+若想深入了解如何提交应用到Firefox Marketplace，可参考[Firefox OS developer hub](https://marketplace.firefox.com/developers/docs/submission)里的文档。
 
-## Summary
+## 总结
 
-Congratulations!!! You have a new application on the Firefox Marketplace, you're exploring a brand new market!
+恭喜！！！你在Firefox Marketplace发布了一个新应用，这是对一个全新市场的探索。
 
-I hope you enjoyed this quick guide. I plan to update and expand this guide often - so keep your eyes open and register for the updates. If you downloaded this book from Leanpub then its all good because you will receive emails about any updates. If you downloaded it from somewhere else then please consider fetching it from [the official page at Leanpub](http://leanpub.com/quickguidefirefoxosdevelopment) and registering your email. It's free and, no, you won't get any spam. Promise. 
+我希望你喜欢这本快速指南。我打算经常更新和扩展该指南，所以请持续关注，订阅更新吧。如果你的书是在Leanpub下载的，很好，每次更新你都会收到邮件。如果是在别处下载的，请考虑在[Leanpub的官方页面](http://leanpub.com/quickguidefirefoxosdevelopment)获取更新，以及用邮件订阅。本书完全免费，而且你绝对不会收到任何垃圾邮件，我保证。
 
-Please send me feedback. This book was written by pulling all-nights before a tech conference so you can infer how much I enjoy this project and want to see it succeed. I can be reached for feedback on my Twitter account at [@soapdog](http://twitter.com/soapdog) and over email at [fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com). My home page is at [http://andregarzia.com](http://andregarzia.com).
+欢迎反馈。这本书是我在一个科技大会召开前，抽出很多晚时间写出来的，所以你能体会我是有多享受这个项目，多想看它成功。如有反馈，可去Twitter[@soapdog](http://twitter.com/soapdog)，或者发送邮件到[fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com)。我的个人主页是[http://andregarzia.com](http://andregarzia.com)。
 
-Now that you're a part of the group of Firefox OS app creators, come be a part of the greater Mozilla community: Help keep the web free and open made by users for users. Join us at [http://www.mozilla.org/contribute/](http://www.mozilla.org/en-US/contribute/) and help Firefox OS grow!
-
+现在你是Firefox OS应用开发者的一员了，来成为我大Mozilla社区的一员吧，Mozilla社区致力于打造自由的网络，对用户完全开放的网络。来[http://www.mozilla.org/contribute/](http://www.mozilla.org/en-US/contribute/)加入我们，帮助Firefox OS成长！
