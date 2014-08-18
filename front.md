@@ -1,97 +1,99 @@
 {frontmatter}
 
-## Acknowledgments
+## 致谢辞
 
-To my wife Lili, the best wife in the world!
+感谢我的太太Lili，她是世上最好的太太！
 
-To Mozilla for always believing in us, for keeping the web open and free and for always placing the user first!
+感谢Mozilla对我们的长久信任，感谢他们维持着网络的开放和自由，永远把用户放在首位！
 
-To the Brazilian Mozilla Community for receiving me so well and being just awesome!
+感谢了不起的巴西Mozilla社区，感谢他们对我的完全接纳！
 
-To my GSoC mentor Marcos Caceres, the Mozilla WebAPI Team, the Mozilla Tech Evangelists and Dev Engagement teams for being more than awesome!
+感谢棒得不能再棒的GSoC导师Marcos Caceres、Mozilla WebAPI团队、Mozilla技术布道团队以及Mozilla开发者团队！
 
-To Google for the Google Summer of Code 2013! This program is wonderful.
+感谢2013年的Google编程之夏！这个活动非常精彩！
 
-I also say thank you from the bottom of my heart to all people who invested their time and effort in sending me pull requests to make this book better: Ryuno-Ki, chisophugis, ghost, dholbert, marcoscaceres.
+我还要对Ryuno-Ki、chisophugis、ghost、dholbert、marcoscaceres表示衷心的感谢，他们花费了时间努力提交贡献，使得本书更加完善。
 
-## This book is in perpetual beta
+## 本书永不停更
 
-My plan is to update this book often, expanding its contents and revising the text as issues are found by readers. Since some APIs are still being implemented by Firefox OS, you will want to make sure you're reading an up-to-date version of this book.
+我打算经常更新本书，扩充内容，修复读者发现的问题。由于Firefox OS的一些API还处于实施阶段，你一定想确保以后阅读到的是最新版本。
 
-## Me, myself, and I
+## 关于作者
 
-In this book you will find many parts where I express my personal opinion and make decisions that may be different from what other programmers would do - particularly if it helps explain an idea more easily. I will always try to make it clear and explain my reasoning when I am giving my opinion. Anyway, if there is an error in what I am saying, I will revise the text and update the book. See the Feedback & Pull Requests section for more information.
+在本书能多处看到我的个人意见和决定，尤其是我觉得此举能更容易解释我想法的时候，虽然其他程序员可能不会这么做。在表达个人意见时，我会尽量清晰地论证我的观点。总之，如果我的表述不当，我会校正文本，更新本书。更多信息请看“反馈与贡献”部分。
 
-## How this book came to be
+## 写这本书的缘由
 
-Originally, I'd been writing this book in my spare time - but thanks to the good help of my Google Summer of Code (GSoC) mentor, Marcos Caceres, this book became part of my GSoC project - which aimed to create useful developer resources for Firefox OS. So, huge thanks to Google for funding this work and to Mozilla's Web API team for letting me join them over the summer.
+起初，我一直在利用业余时间写作。后来由于我的Google Summer of Code (GSoC)导师Marcos Caceres的鼎力相助，本书成为了我GSoC项目的一部分，此项目的目标是创造有用的Firefox OS开发者资源。因此，非常感谢Google对活动的赞助，以及感谢Mozilla WebAPI团队能让我整夏参与其中。
 
-## Staying up to date
+## 获取最新动态
 
-This book is distributed for **free** using [Leanpub](http://leanpub.com).
+本书**免费**发布在[Leanpub](http://leanpub.com)。
 
-You can register your email to receive automatic updates when you download this book from its [book page at Leanpub](http://leanpub.com/quickguidefirefoxosdevelopment). The plan is to update this book many times per month. If you got this book from a friend or from some other site, you should consider going to the page above to download and register there thus making sure you will receive the update notices.
+如果是在[Leanpub的本书页面](http://leanpub.com/quickguidefirefoxosdevelopment)下载的，可以通过注册邮箱自动获取更新。本书计划每月多更。如果书是从朋友或其他网站获得的，你应该考虑去上述页面下载，并订阅邮件，以确保接收到更新通知。
 
-## Donations
+## 捐助
 
-Writing a book requires a lot of work and I would like to dedicate more time in my life for this type of activity after the 2013 Google Summer of Code is done. Those that think that this book is useful (or cool) may move the price slider on Leanpub download page from zero to any desired amount and give me some bucks. Those that would rather donate using PayPal, I can receive donations under the *agarzia@mac.com* account.
+写书需要耗费大量工夫，在2013年的Google编程之夏闭幕后，我愿在余生倾注更多的精力投身于此类活动。如果你觉得本书有帮助（或很酷），可以在Leanpub下载页面，拖动价格滑块，选择0到任意金额进行捐助。喜欢用PayPal的同学，可捐助到*agarzia@mac.com*账号。
 
-Regardless of donations, you should fill your email on the download form to make sure that once the book is updated you will receive a notice!
+不管捐助与否，你都应该在下载页面填上你的邮箱地址，以便第一时间接收更新通知！
 
-## How to contact the author
+## 联系作者
 
-To send comments and feedback please send an email to [fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com). My website is [http://andregarzia.com](http://andregarzia.com). My Twitter account is [@soapdog](http://twitter.com/soapdog).
+评论和反馈可发送邮件至[fxosquickguide@andregarzia.com](mailto:fxosquickguide@andregarzia.com)。我的个人主页是[http://andregarzia.com](http://andregarzia.com)。Twitter账号是[@soapdog](http://twitter.com/soapdog)。
 
-If you want to help improve the content of this book, please see the Feedback & Pull Requests section.
+如果你想帮忙完善本书内容，请看“反馈与贡献”部分。
 
-## Cover Illustration
+## 封面插图
 
-The cover page was created by Raphael Eckhardt, a designer and illustrator from Brazil. You can check out his work and contact him (he is a freelancer) at [http://raphaeleckhardt.com/](http://raphaeleckhardt.com/).
+封面由巴西的一位设计师和插画师，Raphael Eckhardt，创作。你可以在[http://raphaeleckhardt.com/](http://raphaeleckhardt.com/)查看他的作品和联系方式（他是自由职业者）。
 
-## Who should read this book
+## 面向人群
 
-This book is written for readers with an intermediate knowledge of HTML, CSS and JavaScript who wants to build mobile applications for Firefox OS. Teaching HTML, CSS and JavaScript is beyond the scope of this book. I will give you links for good reference books though.
+本书面向已有一定的HTML, CSS和JavaScript基础，想为Firefox OS开发应用的读者。HTML, CSS和JavaScript的教程不在本书讨论范围。不过我会提供一些不错的参考书籍链接。
 
-## Best Practices vs Beginner Friendliness
+## 最佳实践 vs 新手友好
 
-Experienced developers will notice that sometimes I don't follow all the good practices in the source code of the examples of this book. Even though I am avoiding anti-patterns in here, I am trying to keep the use of immediate functions and other similar practices to a minimum. The main reason for that is to make the source code beginner friendly as this is an introductory book. Seasoned programmers will know when and how to change things while beginner coders will still be able to understand what is going on. All code here works and as I update this book I may revisit the code and use more and more best practices depending on the readers feedback.
+有经验的开发者会留意到，本书的示例代码并不都是最佳写法。虽然我一直在避免反模式，但在本书中，对于立即执行函数和其他类似的最佳实践，我会尽量少用。主要原因是，我想让代码对新手友好，毕竟本书是入门用书。这样一来，老手自然懂得何时何法修改代码，新手也能看得懂。本书的所有代码都能正常运行，以后的更新中，我或许会根据读者的反馈来重写代码，使用更多的最佳实践。
 
-If you want to dive deeper in the world of high quality JavaScript coding here are some good books:
+假如你想深入研究如何编写高质量Javascript代码，这里推荐几本好书：
 
 * [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do): The JavaScript Book.
 * [JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do): Patterns and best practices.
 * [JavaScript Enlightenment](http://shop.oreilly.com/product/0636920027713.do): Advanced JavaScript techniques.
 * [Maintainable JavaScript](http://shop.oreilly.com/product/0636920027713.do): Writing code that is easy to maintain and work with.
 
-## Feedback & Pull Requests
+## 反馈和贡献
 
-This is a Free and Open book and I am excited to receive all feedback that you people can give me. All the content of the book is at a [GitHub repository](https://github.com/soapdog/firefoxos-quick-guide) and is built using Markdown (with some extensions by Leanpub). To give me feedback, bug fixes and improvements just send me a pull request. Thanks in advance for all contributions.
+本书是免费且开放的，我很兴奋收到任何反馈。本书的全部内容都放在[GitHub仓库](https://github.com/soapdog/firefoxos-quick-guide)，并使用Markdown生成(借助Leanpub的某些扩展)。如果你有任何反馈、bug修复和改进，请随时提交合并请求。在此我先对所有的贡献表示感谢。
 
-The Git repository for this book is at [https://github.com/soapdog/firefoxos-quick-guide](https://github.com/soapdog/firefoxos-quick-guide).
+本书的Git仓库地址是[https://github.com/soapdog/firefoxos-quick-guide](https://github.com/soapdog/firefoxos-quick-guide)。
 
-## Translations
+## 翻译
 
-This book was originally written in Portuguese and translated into English by me. Both versions are available for free on the net at:
+本书最初由我用葡萄牙语编写，然后翻译成英文。两种语言的版本都可以在网上免费获取：
 
-* [Portuguese Version](http://leanpub.com/guiarapidofirefoxos): Guia Rapido para Desenvolvimendo para Firefox OS.
-* [English Version](http://leanpub.com/quickguidefirefoxosdevelopment): Quick Guide for Firefox OS App Development.
+* [葡萄牙语版本](http://leanpub.com/guiarapidofirefoxos): Guia Rapido para Desenvolvimendo para Firefox OS.
+* [英语版本](http://leanpub.com/quickguidefirefoxosdevelopment): Quick Guide for Firefox OS App Development.
 
-I welcome all help to translate this book to even more languages (and to fix my broken English).
+欢迎各方人士帮忙把本书翻译成更多语言（顺便帮我改善蹩脚的英语）。
 
-## Version history
+## 版本历史
 
-### Version 0.3
-Added new content for **App Manager**. Since most of the current devices still running **Firefox OS 1.1** we're keeping the old simulator stuff.
+### 版本 0.3
 
-This version was done as a quick update to include the App Manager section. This section will be improved in the next releases. If you find anything wrong with this new section (or any section) then please report the issues at [issue tracker on GitHub](https://github.com/soapdog/firefoxos-quick-guide/issues).
+新增**应用管理器**章节。由于现在大部分设备运行的仍是**Firefox OS 1.1**，所以我会保留旧版模拟器的章节。
 
-### Version 0.2
-Book was revised by Marcos Caceres of Mozilla's WebAPI team. The content of each chapter was checked for technical correctness, and many grammatical mistakes and typos were fixed throughout.
+此版本对应用管理器章节的更新有些仓促。我们将在下次更新完善它。如果你发现新章节（或任何章节）表述有误，请到[issue tracker on GitHub](https://github.com/soapdog/firefoxos-quick-guide/issues)报告问题。
 
-### Version 0.1
+### 版本 0.2
 
-This is the first version of this book. I am yet to run this through an editor and it was not revised for typos, grammar mistakes and general bad things. English is not my first language so please correct me when I am wrong. What you're reading here begun on the 20th of August of 2013 as a quick guide to be distributed at [BrazilJS Conference](http://braziljs.com.br/) that happened on the 22nd and 23rd. So you're basically reading a quick draft written in two days.
+本书由Mozilla's WebAPI团队的Marcos Caceres修订。每一章内容都进行了技术性的检查，同时修正了许多语法和拼写错误。
 
-I am using the [Leanpub](http://leanpub.com) system to write this book. This system allows me to iterate quickly and manage this project while keeping me sane. This version is a quasi-literal translation from the original in Portuguese.
+### 版本 0.1
+
+这是本书的首个版本。我尚未在编辑器运行过，同时，拼写错误、语法错误还有其他错误都没有修正。英语不是我的母语，如果表述不当请更正我。本书作为一本快速指南，于2013年8月20号开始编写，发布于22号和23号举行的[BrazilJS大会](http://braziljs.com.br/)。因此这更像是一本在两天内快速写成的草稿。
+
+我使用了[Leanpub](http://leanpub.com)系统写这本书。此系统有助于快速迭代，同时让我保持冷静的头脑管理项目。此版本系根据葡萄牙语版，半直译而成。
 
 {mainmatter}
