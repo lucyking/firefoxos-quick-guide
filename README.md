@@ -36,17 +36,17 @@ This book is distributed using Creative Commons license. More information inside
 
 ## 项目进度
 
-- [x] appmanager.md [yuanwowo](https://github.com/yuanwowo)
-- [x] back.md [yuanwowo](https://github.com/yuanwowo)
-- [x] basics.md [lucyking](https://github.com/lucyking)
-- [x] devtools.md [yuanwowo](https://github.com/yuanwowo)
-- [x] distribution.md [yuanwowo](https://github.com/yuanwowo)
-- [x] firstapp.md [lucyking](https://github.com/lucyking)
-- [x] front.md [yuanwowo](https://github.com/yuanwowo)
-- [x] introduction.md [yuanwowo](https://github.com/yuanwowo)
-- [x] marketplace.md [yuanwowo](https://github.com/yuanwowo)
-- [x] setup.md [yuanwowo](https://github.com/yuanwowo)
-- [x] simulator.md [yuanwowo](https://github.com/yuanwowo)
+- [x] appmanager.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] back.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] basics.md   [lucyking](https://github.com/lucyking)
+- [x] devtools.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] distribution.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] firstapp.md   [lucyking](https://github.com/lucyking)
+- [x] front.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] introduction.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] marketplace.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] setup.md   [yuanwowo](https://github.com/yuanwowo)
+- [x] simulator.md   [yuanwowo](https://github.com/yuanwowo)
 
 ## 贡献者
 
