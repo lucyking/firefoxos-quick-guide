@@ -1,4 +1,4 @@
-# 应用管理器 {#app-manager}
+# 应用管理器 {#appmanager}
 
 ![Firefox OS Simulator Dashboard](images/originals/app-manager-showing-memos.png)
 
