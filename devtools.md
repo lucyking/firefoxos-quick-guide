@@ -1,4 +1,4 @@
-# 开发者工具{#developertools}
+# 开发者工具 {#developertools}
 
 Firefox提供了很多工具协助开发者。许多人一直在用[FireBug](https://addons.mozilla.org/pt-BR/firefox/addon/firebug/)，还没发现其实Firefox已经有内置的开发者工具箱了。在本章，我们将介绍几个对Firefox OS应用开发者最有用的工具。
 

@@ -1,4 +1,4 @@
-# Firefox OS模拟器{#simulator}
+# Firefox OS模拟器 {#simulator}
 
 ![Firefox OS Simulator Dashboard](images/originals/simulator-dashboard.png)
 
