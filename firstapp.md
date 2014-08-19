@@ -483,7 +483,7 @@ window.onload = function () {
 
 如果你有一个Firefox OS 1.1版本的设备，然后你的浏览版本是29，那么你可以根据需要安装对应平台的Firefox OS 1.1 simulator version 5.0 [Mac OS X](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-mac.xpi), [Linux](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-linux.xpi) or [Windows](http://ftp.mozilla.org/pub/mozilla.org/labs/r2d2b2g/r2d2b2g-5.0pre7-windows.xpi)。安装完成后你就可以按照指导说明连接上你的设备。
 
-如果你的设备系统是Firefox OS 1.1版本并且是无锁的，那么你还可以选择更新到1.2或更高的系统版本。选择更新会使你之后的工作变得更加顺手。 Geeksphone Keon，Geeksphone Peak和Geeksphone Revolution上面每天都会推出Firefox OS的改进版本，参见[http://downloads.geeksphone.com/](http://downloads.geeksphone.com/)。 我国的ZTE Open详细更新步骤参见[Upgrading your ZTE Open to Firefox 1.1 or 1.2 (fastboot enabled)](https://hacks.mozilla.org/2014/01/upgrading-your-zte-open-to-firefox-1-1-or-1-2-fastboot-enabled/)。泡菜国的LG Fireweb暂时不能更新。如果你们觉得我人不错，然后又觉得LG不能更新很讨厌的话，那么快去他们的官方Twitter上提建议。Alcatel One Touch Fire可以更新，但是其详细步骤已经超出了本书的讨论范畴。
+如果你的设备系统是Firefox OS 1.1版本并且是无锁的，那么你还可以选择更新到1.2或更高的系统版本。选择更新会使你之后的工作变得更加顺手。 Geeksphone Keon，Geeksphone Peak和Geeksphone Revolution上面每天都会推出Firefox OS的改进版本，参见[http://downloads.geeksphone.com/](http://downloads.geeksphone.com/)。 我国的ZTE Open详细更新步骤参见[Upgrading your ZTE Open to Firefox 1.1 or 1.2 (fastboot enabled)](https://hacks.mozilla.org/2014/01/upgrading-your-zte-open-to-firefox-1-1-or-1-2-fastboot-enabled/)。LG Fireweb暂时不能更新。如果你们觉得我人不错，然后又觉得LG不能更新很讨厌的话，那么快去他们的官方Twitter上提建议。Alcatel One Touch Fire可以更新，但是其详细步骤已经超出了本书的讨论范畴。
 
 注：bugzilla上的这个[bug request #1001590](https://bugzilla.mozilla.org/show_bug.cgi?id=1001590)补丁可以修正当前Firefox 29不能运行Firefox OS 1.1模拟器的问题。
 
