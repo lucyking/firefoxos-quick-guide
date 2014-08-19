@@ -19,7 +19,7 @@ Memos采用[IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_
 首先我们为要开发的应用建立一个名为 **memos**的文件夹。
 
 ##创建应用的manifest文件
-Memos的manifest文相当简洁。先在**memos**文件下创建一个名为**manifest.webapp** 的文件。manifest是一种用来描述应用属性的[JSON](http://json.org)格式文件。该文件通常包含应用名称，应用图标源地址，从哪个文件开始加载应用，该应用会调用哪些用户级API函数等各项信息。
+Memos的manifest文件相当简洁。先在**memos**文件下创建一个名为**manifest.webapp** 的文件。manifest是一种用来描述应用属性的[JSON](http://json.org)格式文件。该文件通常包含应用名称，应用图标源地址，从哪个文件开始加载应用，该应用会调用哪些用户级API函数等各项信息。
 
 以下我们可以看到Memos应用中manifest文件的详细内容。在复制这些数据的时候要注意避免在文本中添加额外的逗号导致JSON格式出错。当前有很多帮助开发者合法化JSON文件格式的工具，不过这里推荐一款专门用来生成manifest文件的在线工具。详情参见[http://appmanifest.org/](http://appmanifest.org/)（译注：这个链接有问题）。关于manifest的更多内容参见[this page on MDN about them](https://developer.mozilla.org/docs/Apps/Manifest)。
 
