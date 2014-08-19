@@ -1,8 +1,8 @@
-# Our First App {#firstapp}
+# 我们的第一个App {#firstapp}
 
 ![Memos, a minimalist notepad app](images/originals/memos-app.png)
 
-在本章中，我们将着手建立一个名为**Menosz**的简易记事本应用。在开工之前，让我们先来回顾下该应用的运行方式。
+在本章中，我们将着手建立一个名为**Menos**的简易记事本应用。在开工之前，让我们先来回顾下该应用的运行方式。
 
 该应用具有三个界面。主界面列出记事条目。当你点击一条记事（或者添加一条记事）的时候，就会跳转到可以对相关标题和内容进行编辑的详细界面。如下图所示：
 
@@ -29,12 +29,12 @@ Memos的mainfest文相当简洁。先在**memos**文件下创建一个名为**ma
 
 |Field		|Description                                                                        |
 |-----------|-----------------------------------------------------------------------------------|
-|name		|This is the name of the application.		                                                |
-|version	|This is the current version of the app. 										    |
-|launch_path|What file is used to launch your application.					                    |
-|permissions|What API permissions your app requests. More information about this below.				|
-|developer  |Who developed this application 													|
-|icons		|The icons used by the app in many different sizes.									|
+|name		|App的名字.		                                    |
+|version	|App的当前版本. 										   |
+|launch_path|你的App的启动文件.					                 |
+|permissions|你的App请求的 API 权限. 下面是详细信息.				     |
+|developer  |谁开发了这个App 									      |
+|icons		|这个App使用的图标的不同尺寸. 							  |
 
 这些字段中比较重要的是授权许可字段，通过在该字段中声明对*存储设备*的读写权限，应用才能运用IndexedDB无限制地存储数据。[^存储限制]（由于权限许可应用软件才可以随心所欲地存储-不过要注意不要过多占用设备的存储空间）。
 
@@ -111,45 +111,47 @@ Gaia模块中的HTML布局将应用的每一屏幕界面定义为一个`<section
 
 ~~~~~~~~
 <section role="region" id="memo-detail" class="skin-dark hidden">
-    <header>
-        <button id="back-to-list"><span class="icon icon-back">back</span>
-        </button>
-        <menu type="toolbar">
-            <a id="share-memo" href="#"><span class="icon icon-share">edit</span>
+  <header>
+    <button id="back-to-list"><span class="icon icon-back">back</span>
+    </button>
+    <menu type="toolbar">
+      <a id="share-memo" href="#"><span class="icon icon-share">edit</span>
             </a>
-        </menu>
-        <form action="#">
-            <input id="memo-title" placeholder="Memo Title" required="required" type="text">
-            <button type="reset">Remove text</button>
-        </form>
-    </header>
-    <p id="memo-area">
-        <textarea placeholder="Memo content" id="memo-content"></textarea>
-    </p>
-    <div role="toolbar">
-        <ul>
-            <li>
-                <button id="delete-memo" class="icon-delete">Delete</button>
-            </li>
-        </ul>
-    </div>
-    <form id="delete-memo-dialog" role="dialog" data-type="confirm" class="hidden">
-        <section>
-            <h1>Confirmation</h1>
-            <p>Are you sure you want to delete this memo?</p>
-        </section>
-        <menu>
-            <button id="cancel-delete-action">Cancel</button>
-            <button id="confirm-delete-action" class="danger">Delete</button>
-        </menu>
+    </menu>
+    <form action="#">
+      <input id="memo-title" placeholder="Memo Title" required="required" 
+      type="text">
+      <button type="reset">Remove text</button>
     </form>
+  </header>
+  <p id="memo-area">
+    <textarea placeholder="Memo content" id="memo-content"></textarea>
+  </p>
+  <div role="toolbar">
+    <ul>
+      <li>
+        <button id="delete-memo" class="icon-delete">Delete</button>
+      </li>
+    </ul>
+  </div>
+  <form id="delete-memo-dialog" role="dialog" data-type="confirm" 
+  class="hidden">
+    <section>
+      <h1>Confirmation</h1>
+      <p>Are you sure you want to delete this memo?</p>
+    </section>
+    <menu>
+      <button id="cancel-delete-action">Cancel</button>
+      <button id="confirm-delete-action" class="danger">Delete</button>
+    </menu>
+  </form>
 </section>
 ~~~~~~~~
 
-在编辑界面的顶端，即代码中的`<header>`部件中包含了：
-* 一个可以返回主界面的按钮，
-* 一个用来包含记事标题的文本框
-* 一个可以通过邮件分享记事的按钮
+在编辑界面的顶端，即代码中的`<header>`部件中包含了：   
+* 一个可以返回主界面的按钮，   
+* 一个用来包含记事标题的文本框   
+* 一个可以通过邮件分享记事的按钮   
 
 在顶部菜单栏下方，我们用一个`<textarea>`部件来容纳记事主内容，用一个带垃圾桶图标的菜单栏来删除当前记事。
 
