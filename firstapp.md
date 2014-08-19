@@ -2,7 +2,7 @@
 
 ![Memos, a minimalist notepad app](images/originals/memos-app.png)
 
-在本章中，我们将着手建立一个名为**Menos**的简易记事本应用。在开工之前，让我们先来回顾下该应用的运行方式。
+在本章中，我们将着手建立一个名为**Memos**的简易记事本应用。在开工之前，让我们先来回顾下该应用的运行方式。
 
 该应用具有三个界面。主界面列出记事条目。当你点击一条记事（或者添加一条记事）的时候，就会跳转到可以对相关标题和内容进行编辑的详细界面。如下图所示：
 
@@ -18,14 +18,14 @@ Memos采用[IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_
 
 首先我们为要开发的应用建立一个名为 **memos**的文件夹。
 
-##创建应用的mainfest文件
-Memos的mainfest文相当简洁。先在**memos**文件下创建一个名为**manifest.webapp** 的文件。mainfest是一种用来描述应用属性的[JSON](http://json.org)格式文件。该文件通常包含应用名称，应用图标源地址，从哪个文件开始加载应用，该应用会调用哪些用户级API函数等各项信息。
+##创建应用的manifest文件
+Memos的manifest文相当简洁。先在**memos**文件下创建一个名为**manifest.webapp** 的文件。manifest是一种用来描述应用属性的[JSON](http://json.org)格式文件。该文件通常包含应用名称，应用图标源地址，从哪个文件开始加载应用，该应用会调用哪些用户级API函数等各项信息。
 
-以下我们可以看到Memos应用中mainfest文件的详细内容。在复制这些数据的时候要注意避免在文本中添加额外的逗号导致JSON格式出错。当前有很多帮助开发者合法化JSON文件格式的工具，不过这里推荐一款专门用来生成mainfest文件的在线工具。详情参见[http://appmanifest.org/](http://appmanifest.org/)（译注：这个链接有问题）。关于mainfest的更多内容参见[this page on MDN about them](https://developer.mozilla.org/docs/Apps/Manifest)。
+以下我们可以看到Memos应用中manifest文件的详细内容。在复制这些数据的时候要注意避免在文本中添加额外的逗号导致JSON格式出错。当前有很多帮助开发者合法化JSON文件格式的工具，不过这里推荐一款专门用来生成manifest文件的在线工具。详情参见[http://appmanifest.org/](http://appmanifest.org/)（译注：这个链接有问题）。关于manifest的更多内容参见[this page on MDN about them](https://developer.mozilla.org/docs/Apps/Manifest)。
 
 <<[Memos manifest file (*manifest.webapp*)](code/memos/manifest.webapp)
 
-我们来看下以上mainfest文件中包含了哪些字段。
+我们来看下以上manifest文件中包含了哪些字段。
 
 |Field		|Description                                                                        |
 |-----------|-----------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ Memos的mainfest文相当简洁。先在**memos**文件下创建一个名为**ma
 
 [^存储权限]：相关权限的更多内容参见[the page on MDN about app permissions](https://developer.mozilla.org/en-US/docs/Web/Apps/App_permissions)。
 
-既然已经建好mainfest文件，接下来我们开始着手创建HTML文件。
+既然已经建好manifest文件，接下来我们开始着手创建HTML文件。
 
 ##创建HTML文件
 创建HTML文件之前，我们简略地探讨一些关于[Gaia Building Blocks](http://buildingfirefoxos.com/building-blocks)的内容。Gaia Building Blocks中包含了很多可以重用到开发者自己的应用上，Firefox OS风格的交互界面代码模板。
@@ -176,7 +176,7 @@ Gaia模块中的HTML布局将应用的每一屏幕界面定义为一个`<section
 以上两个文件都应该放在一个名为**js**的文件夹中，该文件夹位于**style**和**shared**文件夹之后。
 
 ### model.js
-我们将采用[IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB)存储记事条目。由于事先在应用的mainfest文件中对存储权限进行声明，所以存储条目不会受到限制。但是，我们不能因此而滥用权限。Firefox OS设备的存储空间通常有限。所以开发者需要时刻注意你的应用存储了什么数据（如果你的应用占用了设备过多存储空间的话，用户就会卸载应用并给你的应用差评！）。并且存储过量数据的话会对应用的流畅运行产生影响，使应用在运行时有卡顿的感觉。注意，当你向Firefox OS应用市场提交应用，审查者会问你为什么要声明无限大的存储空间 -- 如果你不能做出合理解释的话，你的应用将不能通过审核。
+我们将采用[IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB)存储记事条目。由于事先在应用的manifest文件中对存储权限进行声明，所以存储条目不会受到限制。但是，我们不能因此而滥用权限。Firefox OS设备的存储空间通常有限。所以开发者需要时刻注意你的应用存储了什么数据（如果你的应用占用了设备过多存储空间的话，用户就会卸载应用并给你的应用差评！）。并且存储过量数据的话会对应用的流畅运行产生影响，使应用在运行时有卡顿的感觉。注意，当你向Firefox OS应用市场提交应用，审查者会问你为什么要声明无限大的存储空间 -- 如果你不能做出合理解释的话，你的应用将不能通过审核。
 
 以下的这段js代码主要用来打开链接和创建存储空间。
 
