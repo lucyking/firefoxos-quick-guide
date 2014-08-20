@@ -57,21 +57,21 @@ git summary
 
  project  : firefoxos-quick-guide
  repo age : 12 months
- active   : 26 days
- commits  : 141
+ active   : 27 days
+ commits  : 157
  files    : 335
  authors  :
-    41  Andre Alves Garzia  29.1%
-    24  Liu Xing            17.0%
-    23  Marcos Caceres      16.3%
-    18  刘星                12.8%
-    13  lucyking            9.2%
-     9  Yuan                6.4%
-     6  Andre Jaenisch      4.3%
-     2  Daniel Holbert      1.4%
-     2  Meteor              1.4%
-     2  filipecatraia       1.4%
-     1  Sean Silva          0.7%
+    41  Andre Alves Garzia  26.1%
+    27  Liu Xing            17.2%
+    26  刘星                16.6%
+    23  Marcos Caceres      14.6%
+    13  lucyking            8.3%
+    10  Yuan                6.4%
+     6  Andre Jaenisch      3.8%
+     6  Meteor              3.8%
+     2  Daniel Holbert      1.3%
+     2  filipecatraia       1.3%
+     1  Sean Silva          0.6%
 ```
 
 ## l10n
