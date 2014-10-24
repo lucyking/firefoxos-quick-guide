@@ -1,4 +1,5 @@
 # Quick Guide for FXOS Development
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/MozillaChina/firefoxos-quick-guide?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This repository contains the English markdown sources for the book called "Quick Guide for Firefox OS Development" by Andre Alves Garzia.
 
